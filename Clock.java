@@ -106,10 +106,13 @@ public class Clock {
         // prints the total elapsed time in seconds: 172,800
         System.out.printf("The elapsed time in seconds is: %d", t1.calculateTotalSeconds());
         // REPEAT SIMILAR TESTS FOR t2
+        System.out.println("\n");
+        System.out.println(t2.getDay() + ":" + t2.getHour() +":" + t2.getMinute() + ":" + t2.getSecond());   
         //Elapsed time is 3 days, 1 hour, 4 mins and 5 secs
         Clock t2 = new Clock(3, 1, 4, 5);
         
-        System.out.println();
+        t2.increment(44);
+        
         System.out.println(t2.getDay() + ":" + t2.getHour() +":" + t2.getMinute() + ":" + t2.getSecond());   
         System.out.printf("The elapsed time in seconds is: %d", t2.calculateTotalSeconds());    
     }
