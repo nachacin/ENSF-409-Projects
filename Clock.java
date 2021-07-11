@@ -6,6 +6,7 @@ public class Clock {
     private int second;
 
     public Clock(){
+        day = 0; hour = 0; minute = 0; second = 0;
     }
 
     public Clock(int day, int hour, int minute, int second)
