@@ -1,3 +1,11 @@
+/**
+ * Implements a Clock object with appropriate fields and methods needed
+ * for basic time keeping functionality.
+ * 
+ * @author Nasih Nazeem
+ * @version 1.0
+ * @since July 11, 2021
+ */
 public class Clock {
     
     private int day;
