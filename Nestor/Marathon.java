@@ -1,7 +1,7 @@
 /**
  * Provides data fields and methods to identify the lowest time spent in the marathon.
  * 
- * @author Nasih Mohamed Nazeem
+ * @author Nasih Mohamed Nazeem and Nestor Chacin
  * @version 1.0
  * @since July 11, 2021
  */
