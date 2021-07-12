@@ -1,22 +1,57 @@
+/**
+ * This source code includes classes necessary to impliment a singly
+ * linked list. It also includes basic testing within the main method
+ * in the SimpleList class
+ * 
+ * @author Nestor Chacin and Nasih Nazeem
+ * @version 1.0
+ * @since July 11, 2021
+ */
 
-
+ /**
+  * Stores fields for nodes in a linked list including the node's data and
+  * a reference to the next node in the linked list. The reference must be set by
+  * external methods.
+  */
 class Node {
     Node next;
     int item;
+    /**
+     * Constructs a Node object, storing its data in the item field
+     * @param item stores Node's data
+     */
     public Node(int item){
         this.item = item;
     }
 }
-
+/**
+ * Implements linked list and performs relevant operations through successive
+ * calls to its methods. Maintains the head node and list size references up-to-date.
+ * 
+ */
 class LinkedList {
+    /**
+     * Reference for the head node in the linked list
+     */
     Node headM;
+    /**
+     * Stores the length of the list
+     */
     int sizeM;
-    
+    /**
+     * Constructs a LinkedList object. Sets its fields to default values
+     * of a list of length = 0
+     */
     public LinkedList() {
         headM = null;
         sizeM = 0;
     }
-
+    /**
+     * An item is returned at the n'th position of the list.
+     * if n is less than 0 or greater than or equal sizeM gives the error
+     * @param n
+     * @return
+     */
     public int get(int n) {
         if (n < 0 || n >= sizeM) {
             System.out.println("Illegal Access. Program Terminates...");
@@ -29,7 +64,11 @@ class LinkedList {
         }
         return p.item;
     }
-
+    /**
+     * Changes a value in linked list at a desired position
+     * @param n desired position (index)
+     * @param v value
+     */
     public void set(int n, int v){
         if (n < 0 || n >= sizeM) {
             System.out.println("Illegal Access. Program Terminates...");
@@ -42,7 +81,10 @@ class LinkedList {
         }
         p.item = v;
     }
-
+    /**
+     * Adds a node and its data to the end of the list, and increments sizeM
+     * @param item data
+     */
     public void pushBack(int item) {
         Node newNode = new Node(item);
         
@@ -60,14 +102,25 @@ class LinkedList {
         }
         sizeM++;
     }
-
+    /**
+     * Adds a node and its data to the beginning of the list, and increments sizeM
+     * @param item data
+     */
     public void pushFront(int item) {
         Node newNode = new Node(item);
         newNode.next = headM;
         headM = newNode;
         sizeM++;
     }
-
+    /**
+     * A node with a copy of the data is inserted at the nth position, and sizeM
+     * will be incremented if the operation of insert was successfull.
+     * if n == sizeM, pushBack is called
+     * if n == 0, pushFront is called
+     * if n < 0 or n > sizeM, returns and does nothing.
+     * @param itemA copy of the data
+     * @param n desired index position
+     */
     public void insert(int itemA, int n) {
         if (n < 0 || n > sizeM) {
             return;
@@ -94,12 +147,19 @@ class LinkedList {
             sizeM++;
         }
     }
-
+    /**
+     * Sets list size to zero and head node reference to null, effectively
+     * deleting the contents of the list (list length = zero)
+     */
     public void clear() {
         headM = null;
         sizeM = 0;
     }
-
+    /**
+     * Does nothing if n < 0 or n > sizeM-1. Otherwise, if list is not empty
+     * removes the node at the desired position.
+     * @param n desired position
+     */
     public void remove(int n) {
         if (headM == null || n < 0 || n >= sizeM) {
             return;
@@ -125,6 +185,10 @@ class LinkedList {
         }
         sizeM--;
     }
+    /**
+     * Builds a string from the item fields in the linked list elements.
+     * @returns a reference to said string.
+     */
     public String toString() {
         String result = "";
         Node current = headM;
@@ -138,7 +202,11 @@ class LinkedList {
         return result;
     }
 }
-
+/**
+ * Initializes a LinkedList object and procedes to test the functionality of
+ * its methods. Output is printed such that program output can be compared to 
+ * expected values.
+ */
 public class SimpleList {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();

@@ -1,7 +1,22 @@
 import java.util.Scanner;
-
+/**
+ * Takes 3 lines that are entered by the user, the lines are stored as 3 seperate strings
+ * that are manipulated as required by lab 1 - ex 4. The lines are stored into a 3X60 char array
+ * and later printed for the user.
+ * 
+ * @author Nestor Chacin and Nasih Nazeem
+ * @version 1.0
+ * @since July 11, 2021
+ */
 public class MDArray {
-
+    /**
+     * Takes 3 strings and stores them in a 3X60 char array. Each character is
+     * is rearranged/formatted as required by lab 1 - ex 4
+     * @param str1
+     * @param str2
+     * @param str3
+     * @return 3X60 char array
+     */
     private static char [][] deepArray(String str1, String str2, String str3) {
         int i, j, k;
         String[] str2Split = str2.split(" ");
@@ -28,8 +43,10 @@ public class MDArray {
         }
         return charArray;
     }
-
-
+    /**
+     * Collects lines inputted by the user and calls deepArray for testing
+     * @param args 
+     */
     public static void main(String[] args) {
         String first, second, third;
         int i;

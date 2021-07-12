@@ -1,10 +1,28 @@
 import java.util.Scanner;
-
+/**
+ * Breaks the input into tokens using a delimiter which is whitespace by default. It provides many methods to read and parse various primitive values.
+ * 
+ * SinValidator takes in a string, converts it into an array of integers and gets tested through multiple steps before attempting to mention whether 
+ * the SIN number is valid or invalid.
+ * 
+ * @author Nasih Mohamed Nazeem
+ * @version 1.0
+ * @since July 11, 2021
+ */
 
 public class SinValidator {
 
+	/**
+	 * Initialize the SIN array that will hold the SIN number digits in integer form.
+	 */
 	private int[] SIN;
 
+	/**
+	 * This method is used to add the digits of the resultant product together.
+	 *  
+	 * @param x The resultant received after multiplying the SIN digit by 2.
+	 * @return An integer value that is the addition of the resultant digits in steps 2 and 3.
+	 */
 	private int sumDigit(int x)
 	{
 		int result =0;
@@ -17,6 +35,11 @@ public class SinValidator {
 		return result;
 	}
 
+	/**
+	 * This checks whether the number being input is 9 digits long, after converting the string of numbers into an array of integers.
+	 * 
+	 * @param sin User inputs a SIN number they would like to validate.
+	 */
 	public SinValidator(String sin) {
 
 		SIN = new int[9];
@@ -43,6 +66,12 @@ public class SinValidator {
 		}	
 	}
 	
+	/**
+	 * Determines whether the sequence of integers in SIN number is valid
+	 * as outlined by algorithm in Lab 1 - ex 3
+	 * 
+	 * @return a boolean value true/false = valid/invalid
+	 */
 	public boolean validateSin()
 	{
 		int sum1 = 0;
@@ -60,6 +89,13 @@ public class SinValidator {
 			return false;		
 	}
 
+	/**
+	 * The main method enters a loop where SIN numbers can be tested by inputting
+	 * them into the command line. The program notifies the user of the result after
+	 * each SIN is inputted
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Read user input
 	

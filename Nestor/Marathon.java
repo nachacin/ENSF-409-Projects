@@ -1,5 +1,17 @@
+/**
+ * Provides data fields and methods to identify the lowest time spent in the marathon.
+ * 
+ * @author Nasih Mohamed Nazeem
+ * @version 1.0
+ * @since July 11, 2021
+ */
+
 public class Marathon {
 
+    /**
+     * Returns the index of the smallest value in an array of int
+     * @param timeArray is used to access the array elements for parsing
+     */
     static int fastestIndex(int[] timeArray){
         int fastest = 0;
         for (int i = 1; i < timeArray.length; ++i) {
@@ -8,6 +20,11 @@ public class Marathon {
         }
         return fastest;
     }
+
+    /**
+     * main method stores the data to test the Marathon class
+     * @param args
+     */
     public static void main (String[] args) {
         String[] names = { "Elena", "Thomas", "Hamilton", "Suzie",
         "Phil", "Matt", "Alex", "Emma", "John", "James", "Jane",
