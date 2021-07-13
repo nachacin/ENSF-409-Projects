@@ -6,7 +6,7 @@ import java.util.*;
  * Provides data fields and methods to identify the lowest time spent in the marathon.
  * 
  * @author Nasih Mohamed Nazeem
- * @version 16.0.1
+ * @version 1.0
  * @since July 3, 2021
  */
 class Marathon {
