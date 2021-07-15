@@ -23,8 +23,7 @@ class Line {
         // OF A LINE, IN THE FORMAT SHOWN IN THE EXAMPLE BELOW:
         // Line 1: starts at (20, 30), and ends at (50, 100)
         //
-    	String s = "Oops... Line's toString doesn't know how to use Line's toString to display"
-    			+ " the start and end point of a line coordinates...";
+    	String s = "Line " + this.objID + ": starts at " + this.start.toString() + ", and ends at " + this.end.toString() + "";
     	return s;
     }
 }

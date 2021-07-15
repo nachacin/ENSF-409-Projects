@@ -9,7 +9,7 @@ public class Drawing {
 		this.lines = lines;
 		Polygon p = new Polygon(lines);
     	System.out.println(p);
-    	System.out.printf("The perimeter of the polygon %d is %.2f: \n" , Polygon.classID(), perimeter(p));
+    	System.out.printf("The perimeter of the polygon %d is %.2f \n\n" , Polygon.classID(), perimeter(p));
 	}
 	
 	private double perimeter(Polygon p){
