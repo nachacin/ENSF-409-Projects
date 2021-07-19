@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
@@ -5,12 +6,15 @@ public class Player {
     private Board board;
     private Player opponent;
     private char mark;
+    private Referee theReferee;
+    private Scanner inputScanner;
 
-    public Player(String aName, char aMark) {
+    public Player(String aName, char aMark, Scanner aScanner) {
         this.name = aName;
         this.mark = aMark;
         this.board = null;
         this.opponent = null;
+        this.inputScanner = aScanner;
     }
 
     public void play() {
@@ -28,18 +32,27 @@ public class Player {
     }
 
     public void makeMove() {
-        int rowNum;
-        int colNum;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\n" + this.name + ", please enter a row number: ");
-        rowNum = scanner.nextInt();
-        System.out.print("\n" + this.name + ", please enter a column number: ");
-        colNum = scanner.nextInt();
-        board.addMark(rowNum, colNum, this.mark);
+        boolean moveMade = false;
+        var move = new ArrayList<Integer>(2);  // {row number, column number}
+        move.add(0, null);
+        move.add(1, null);
+        while (moveMade == false) {
+            System.out.print("\n" + this.name + ", please enter a row number: ");
+            move.set(0, this.inputScanner.nextInt());
+            System.out.print("\n" + this.name + ", please enter a column number: ");
+            move.set(1, this.inputScanner.nextInt());
+            moveMade = theReferee.validateMove(move, this.name);
+        }
+
+        board.addMark(move.get(0), move.get(1), this.mark);
     }
 
     public void setOpponent(Player theOpponent) {
         this.opponent = theOpponent;
+    }
+
+    public void setRef(Referee aReferee) {
+        theReferee = aReferee;
     }
 
     public void setBoard(Board theBoard) {
