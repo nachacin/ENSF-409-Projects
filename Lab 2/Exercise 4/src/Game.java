@@ -44,10 +44,7 @@ public class Game implements Constants {
 		oPlayer = new Player(name, LETTER_O);
 		oPlayer.setBoard(theGame.theBoard);
 		
-		theRef = new Referee();
-		theRef.setBoard(theGame.theBoard);
-		theRef.setoPlayer(oPlayer);
-		theRef.setxPlayer(xPlayer);
+		theRef = new Referee(xPlayer, oPlayer, theGame.theBoard);
         
         theGame.appointReferee(theRef);
 	}
