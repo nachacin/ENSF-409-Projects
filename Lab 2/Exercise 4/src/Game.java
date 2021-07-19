@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.util.Scanner;
 
 //STUDENTS SHOULD ADD CLASS COMMENTS, METHOD COMMENTS, FIELD COMMENTS 
 
@@ -23,6 +24,7 @@ public class Game implements Constants {
 		Player xPlayer, oPlayer;
 		BufferedReader stdin;
 		Game theGame = new Game();
+		var scanner = new Scanner(System.in);
 		stdin = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("\nPlease enter the name of the \'X\' player: ");
 		String name= stdin.readLine();
@@ -31,7 +33,7 @@ public class Game implements Constants {
 			name = stdin.readLine();
 		}
 
-		xPlayer = new Player(name, LETTER_X);
+		xPlayer = new Player(name, LETTER_X, scanner);
 		xPlayer.setBoard(theGame.theBoard);
 		
 		System.out.print("\nPlease enter the name of the \'O\' player: ");
@@ -41,12 +43,13 @@ public class Game implements Constants {
 			name = stdin.readLine();
 		}
 		
-		oPlayer = new Player(name, LETTER_O);
+		oPlayer = new Player(name, LETTER_O, scanner);
 		oPlayer.setBoard(theGame.theBoard);
 		
 		theRef = new Referee(xPlayer, oPlayer, theGame.theBoard);
         
         theGame.appointReferee(theRef);
+		scanner.close();
 	}
 	
 
