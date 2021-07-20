@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Supplier {
     private int id;
     private String address;
@@ -12,6 +14,15 @@ public class Supplier {
         this.salescontact = aSalesContact;
     }
 
+    public String toString(){
+        String str = String.valueOf(this.id) + this.address;
+        return str;
+    }
+
+    public String toString(ArrayList<Tool> supplierArray){
+        String list = supplierArray.toString();
+        return list;
+    }
 
 
 

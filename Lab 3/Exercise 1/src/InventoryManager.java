@@ -10,7 +10,7 @@ public class InventoryManager {
         public static void main(String[] args) throws Exception {
         String selection;
         String query;
-        File toolsFile = new File("C:\\Users\\nesto\\Desktop\\ENSF409\\Lab 3\\Exercise 1\\database\\items.txt");
+        File toolsFile = new File("H:\\Github\\NasihNazeem\\ENSF409\\Lab 3\\Exercise 1\\database\\items.txt");
         BufferedReader br = new BufferedReader(new FileReader(toolsFile));
 
         String line;
@@ -24,6 +24,13 @@ public class InventoryManager {
         }
         
         System.out.println(inventory.get(2));
+
+        System.out.println(inventory);
+
+        File supplierFile = new File("H:\\Github\\NasihNazeem\\ENSF409\\Lab 3\\Exercise 1\\database\\suppliers.txt");
+        BufferedReader br = new BufferedReader(new FileReader(supplierFile));
+
+        
         /**
         //mini menu
 

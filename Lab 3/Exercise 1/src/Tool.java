@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Tool {
     private int id;
     private String toolname;
@@ -29,11 +31,12 @@ public class Tool {
         return str;
     }
 
-    /**
-    public toString(ArrayList toolArray) {
+    
+    public String toString(ArrayList<Tool> toolArray) {
         // insert here
-        element.toString()
+        String list = toolArray.toString();
+        return list;
     }
-    */
+    
 
 }
