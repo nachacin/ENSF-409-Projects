@@ -1,3 +1,4 @@
+/**  
 public class Inventory {
     private static File itemFile;
 
@@ -18,3 +19,4 @@ public class Inventory {
     }
 
 }
+*/

@@ -15,14 +15,16 @@ public class Supplier {
     }
 
     public String toString(){
-        String str = String.valueOf(this.id) + this.address;
+        String str = String.valueOf(this.id) + " " + this.address + " " + this.companyname + " " + this.salescontact;
         return str;
     }
 
-    public String toString(ArrayList<Tool> supplierArray){
+    public String toString(ArrayList<Supplier> supplierArray){
         String list = supplierArray.toString();
         return list;
     }
+
+    
 
 
 

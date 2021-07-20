@@ -15,7 +15,7 @@ public class Tool {
         this.supplierID = aSupplierID;
     }
 
-    /**
+    /** 
     public searchName(String name, List array) {
         for (Tools e : array){
             if(e.toolname == name) {
@@ -25,9 +25,20 @@ public class Tool {
         }
     }
     */
+    public boolean lowStock(int quantity)
+    {
+        if(quantity < 40){
+
+            System.out.println("This item is low in stock.");
+            return true;
+        }
+        
+        System.out.println("This item is in stock.");
+        return false;
+    }
 
     public String toString() {
-        String str = String.valueOf(this.id) + " " + this.toolname;
+        String str = String.valueOf(this.id) + " " + this.toolname + " " + this.stock + " " + this.price + " " + this.supplierID;
         return str;
     }
 
