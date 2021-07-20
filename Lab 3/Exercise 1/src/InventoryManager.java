@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 public class InventoryManager {
 
@@ -12,11 +13,17 @@ public class InventoryManager {
         File toolsFile = new File("C:\\Users\\nesto\\Desktop\\ENSF409\\Lab 3\\Exercise 1\\database\\items.txt");
         BufferedReader br = new BufferedReader(new FileReader(toolsFile));
 
-        String st;
-        while ((st = br.readLine()) != null) {
-            System.out.println(st);
+        String line;
+        String[] fields;
+        var inventory = new ArrayList<Tool>();
+        while ((line = br.readLine()) != null) {
+            fields = line.split(";");
+            var aTool = new Tool(Integer.parseInt(fields[0]), fields[1], Integer.parseInt(fields[2]),
+                                 Double.parseDouble(fields[3]), fields[4]);
+            inventory.add(aTool);
         }
         
+        System.out.println(inventory.get(2));
         /**
         //mini menu
 

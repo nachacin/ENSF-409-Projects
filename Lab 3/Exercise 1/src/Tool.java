@@ -1,11 +1,11 @@
-public class Tools {
+public class Tool {
     private int id;
     private String toolname;
     private int stock;
     private double price;
     private String supplierID;
 
-    public Tools(int anId, String aToolName, int aStock, double aPrice, String aSupplierID) {
+    public Tool(int anId, String aToolName, int aStock, double aPrice, String aSupplierID) {
         this.id = anId;
         this.toolname = aToolName;
         this.stock = aStock;
@@ -13,6 +13,7 @@ public class Tools {
         this.supplierID = aSupplierID;
     }
 
+    /**
     public searchName(String name, List array) {
         for (Tools e : array){
             if(e.toolname == name) {
@@ -21,15 +22,18 @@ public class Tools {
             break;
         }
     }
+    */
 
-    public toString() {
-        // insert here
+    public String toString() {
+        String str = String.valueOf(this.id) + " " + this.toolname;
+        return str;
     }
 
+    /**
     public toString(ArrayList toolArray) {
         // insert here
         element.toString()
     }
-
+    */
 
 }
