@@ -25,4 +25,11 @@ public class Tools {
     public toString() {
         // insert here
     }
+
+    public toString(ArrayList toolArray) {
+        // insert here
+        element.toString()
+    }
+
+
 }
