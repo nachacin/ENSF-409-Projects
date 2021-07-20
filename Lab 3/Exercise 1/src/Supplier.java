@@ -5,12 +5,14 @@ public class Supplier {
     private String salescontact;
 
 
-    public Supplier(int aId, String anAddress, aCompanyName, aSalesContact){
+    public Supplier(int aId, String anAddress,String  aCompanyName,String aSalesContact){
         this.id = aId;
         this.address = anAddress;
         this.companyname = aCompanyName;
         this.salescontact = aSalesContact;
     }
+
+
 
 
 }
