@@ -38,4 +38,16 @@ public class Tool {
     public int getToolStock() {
         return this.stock;
     }
+
+    public int getID() {
+        return this.id;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+
+    public String getSupplierID() {
+        return this.supplierID;
+    }
 }
