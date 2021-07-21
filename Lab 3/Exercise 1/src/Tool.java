@@ -48,6 +48,8 @@ public class Tool {
         String list = toolArray.toString();
         return list;
     }
-    
 
+    public void decreaseItem(int itemsSold) {
+        this.stock -= itemsSold;
+    }
 }

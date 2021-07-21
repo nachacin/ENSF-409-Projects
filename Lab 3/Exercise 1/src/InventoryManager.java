@@ -14,6 +14,8 @@ public class InventoryManager {
         var suppliers = new ArrayList<Supplier>();
 
         System.out.println(inventory.get(2));
+        inventory.get(2).decreaseItem(2);
+        System.out.println(inventory.get(2));
 
         //System.out.println(inventory);
 
@@ -30,6 +32,8 @@ public class InventoryManager {
         }
 
         System.out.println(suppliers.get(2));
+
+        
 
         Menu.runMenu();
         //System.out.println(suppliers);       
