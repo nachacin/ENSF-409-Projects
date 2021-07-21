@@ -11,9 +11,11 @@ public class InventoryManager {
         public static void main(String[] args) throws Exception {
         String selection;
         String query;
+
+        
         
         // Creation of ArrayList of Tools and Suppliers
-        File toolsFile = new File("H:\\Github\\NasihNazeem\\ENSF409\\Lab 3\\Exercise 1\\database\\items.txt");
+        File toolsFile = new File("C:\\Users\\nesto\\Desktop\\ENSF409\\Lab 3\\Exercise 1\\database\\items.txt");
         BufferedReader br = new BufferedReader(new FileReader(toolsFile));
 
         String line;
@@ -30,7 +32,7 @@ public class InventoryManager {
 
         //System.out.println(inventory);
 
-        File supplierFile = new File("H:\\Github\\NasihNazeem\\ENSF409\\Lab 3\\Exercise 1\\database\\suppliers.txt");
+        File supplierFile = new File("C:\\Users\\nesto\\Desktop\\ENSF409\\Lab 3\\Exercise 1\\database\\suppliers.txt");
         BufferedReader sr = new BufferedReader(new FileReader(supplierFile));
 
         String supline;
@@ -42,7 +44,11 @@ public class InventoryManager {
                                          supfields[3]);
             suppliers.add(aSupplier);
         }
+
         System.out.println("\n");
+
+        Menu.runMenu();
+
         System.out.println(suppliers.get(2));
         //System.out.println(suppliers);
 
@@ -66,5 +72,21 @@ public class InventoryManager {
         Tool.searchName(query, scanner);
         scanner.close();
          */
+    }
+
+    public static int menu() {
+        int selection;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Choose from the following choices:");
+        System.out.println("1 - List all tools");
+        System.out.println("2 - Inventory search by item name");
+        System.out.println("3 - Inventory search by item ID");
+        System.out.println("4 - Check item quantity");
+        System.out.println("5 - Decrease item quantity");
+        System.out.println("0 - Quit");
+
+        selection = input.nextInt();
+        return selection;
     }
 }
