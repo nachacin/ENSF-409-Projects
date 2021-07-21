@@ -64,12 +64,11 @@ public class InventoryManager {
         Integer index = null;
         
         for (int i = 0; i < inventory.size(); i++) {
-            if (itemName.equals(inventory.get(i).getToolName())) {
+            if (itemName.equalsIgnoreCase(inventory.get(i).getToolName())) {
                 index = i;
                 break;
             }
         }
-
         return index;
     }
 }
