@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.sound.midi.SysexMessage;
+
 public class InventoryManager {
     private static ArrayList<Tool> inventory;
     private static ArrayList<Supplier> suppliers;
@@ -70,5 +72,29 @@ public class InventoryManager {
             }
         }
         return index;
+    }
+
+    public static Integer searchID(String itemName) {
+        Integer index = null;
+
+        for (int i = 0; i < inventory.size(); i++){
+            if(Integer.parseInt(itemName) == (inventory.get(i).getID())){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    public static void printSearchToolName(int index) {
+        System.out.println("We found " + inventory.get(index).getToolName() + " in our inventory!");
+        System.out.println("Here are its details:\n" + "Tool ID: " + inventory.get(index).getID() + "\nStock: " + inventory.get(index).getToolStock()
+                             + "\nPrice: " + inventory.get(index).getPrice());
+    }
+
+    public static void printSearchToolID(int index) {
+        System.out.println("We found " + inventory.get(index).getID() + " in our inventory!");
+        System.out.println("Here are its details:\n" + "Tool Name: " + inventory.get(index).getToolName() + "\nStock: " + inventory.get(index).getToolStock()
+                             + "\nPrice: " + inventory.get(index).getPrice());
     }
 }

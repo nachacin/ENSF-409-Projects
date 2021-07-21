@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 public class Menu {
     static boolean exit;
+    private static int indexOf;
 
     /**
      * main method used for debugging the Menu class
@@ -63,8 +64,25 @@ public class Menu {
                 break;
             case 1:
 
+            case 2:
+                System.out.println("Please type the name of the tool you would like to search:");
+                Scanner tn = new Scanner(System.in);
+                indexOf = InventoryManager.searchName(tn.nextLine());
+                InventoryManager.printSearchToolName(indexOf);
+                Menu.runMenu();
+                
+                
+
+            case 3:
+                System.out.println("Please type the ID of the tool you would like to search:");
+                Scanner ti = new Scanner(System.in);
+                indexOf = InventoryManager.searchID(ti.nextLine());
+                InventoryManager.printSearchToolID(indexOf);
+                Menu.runMenu();
+
             case 5:
                 InventoryManager.itemSale();
+                Menu.runMenu();
                 
         
             default:
