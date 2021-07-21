@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Order {
-    private int orderID;
-    private LocalDate date;
+    private static int orderID;
+    private static LocalDate date;
     private String supplier;
 
     ArrayList<Order> orderlist = new ArrayList<Order>();
@@ -16,7 +16,7 @@ public class Order {
      * 
      * @param toolArray
      */
-    public void placeOrder(ArrayList<Tool> toolArray, int index, int ordered) {
+    public static void placeOrder(ArrayList<Tool> toolArray, int index, int ordered) {
         orderID = createID(); 
         date = LocalDate.now();
         
@@ -25,7 +25,7 @@ public class Order {
         
     }
 
-    public int createID(){
+    public static int createID(){
         Random rand = new Random();
         return 10000 + rand.nextInt(100000);
     }
