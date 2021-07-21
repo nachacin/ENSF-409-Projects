@@ -6,7 +6,7 @@ import java.util.Scanner;
  * channel "Intro to Computer Science"
  */
 public class Menu {
-    static boolean exit;
+    private static boolean exit;
     private static int indexOf;
 
     /**
@@ -62,7 +62,11 @@ public class Menu {
                 exit = true;
                 System.out.println("Inventory Manager Terminated");
                 break;
+
             case 1:
+                InventoryManager.printAllTools();
+                Menu.runMenu();
+                break;
 
             case 2:
                 System.out.println("Please type the name of the tool you would like to search:");
@@ -70,8 +74,7 @@ public class Menu {
                 indexOf = InventoryManager.searchName(tn.nextLine());
                 InventoryManager.printSearchToolName(indexOf);
                 Menu.runMenu();
-                
-                
+                break;
 
             case 3:
                 System.out.println("Please type the ID of the tool you would like to search:");
@@ -79,10 +82,20 @@ public class Menu {
                 indexOf = InventoryManager.searchID(ti.nextLine());
                 InventoryManager.printSearchToolID(indexOf);
                 Menu.runMenu();
+                break;
 
+            case 4: 
+                System.out.println("Please provide the name of the tool to view it's quantity");
+                Scanner iq = new Scanner(System.in);
+                indexOf = InventoryManager.searchName(iq.nextLine());
+                InventoryManager.printItemQuantity(indexOf);
+                Menu.runMenu();
+                break;
+                
             case 5:
                 InventoryManager.itemSale();
                 Menu.runMenu();
+                break;
                 
         
             default:

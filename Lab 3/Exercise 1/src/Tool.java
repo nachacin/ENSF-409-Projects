@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Tool {
     private int id;
     private String toolName;
@@ -18,13 +16,6 @@ public class Tool {
     public String toString() {
         String str = String.valueOf(this.id) + " " + this.toolName + " " + this.stock + " " + this.price + " " + this.supplierID;
         return str;
-    }
-
-    
-    public String toString(ArrayList<Tool> toolArray) {
-        // insert here
-        String list = toolArray.toString();
-        return list;
     }
 
     public void decreaseItem(int itemsSold) {

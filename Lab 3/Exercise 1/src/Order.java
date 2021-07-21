@@ -15,8 +15,12 @@ public class Order {
      * Find LocalDate
      * 
      * @param toolArray
+<<<<<<< HEAD
      */
 
+=======
+     
+>>>>>>> refs/remotes/remrepo/main
     public static void placeOrder(ArrayList<Tool> toolArray, int index, int ordered) {
         if (ordersMade == 0) {
           ordersFile = createOrdersFile();
@@ -31,10 +35,16 @@ public class Order {
         Random rand = new Random();
         return 10000 + rand.nextInt(100000);
     }
+<<<<<<< HEAD
     
     private static File createOrdersFile() {
         File pastFile = new File("database\\orders.txt");
         boolean fileDeleted;
+=======
+    /**
+    private static void createOrdersFile() {
+        File pastFile;
+>>>>>>> refs/remotes/remrepo/main
         try {
           fileDeleted = Files.deleteIfExists(pastFile.toPath());
           if (fileDeleted) {
@@ -58,6 +68,7 @@ public class Order {
         }
         return newOrdersFile;
     }
+    */
 
     private static void addHeader() {
       try {
