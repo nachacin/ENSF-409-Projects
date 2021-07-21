@@ -6,7 +6,7 @@ import java.util.Scanner;
  * channel "Intro to Computer Science"
  */
 public class Menu {
-    static boolean exit;
+    private static boolean exit;
     private static int indexOf;
 
     /**
@@ -75,8 +75,6 @@ public class Menu {
                 InventoryManager.printSearchToolName(indexOf);
                 Menu.runMenu();
                 break;
-                
-                
 
             case 3:
                 System.out.println("Please type the ID of the tool you would like to search:");

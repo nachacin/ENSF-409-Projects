@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Tool {
     private int id;
     private String toolName;
