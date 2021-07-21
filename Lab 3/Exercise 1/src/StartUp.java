@@ -56,4 +56,52 @@ public class StartUp {
         }
         return toolList;
     }
+
+    public static ArrayList<Supplier> getSuppliers(){
+        getSuppliersFileName();
+        return fillSuppliers();
+    }
+
+    private static void getSuppliersFileName() {
+        boolean fileFound = false;
+        String fileName;
+        Scanner kb = new Scanner(System.in);
+        while(!fileFound) {
+
+            try {
+                System.out.println("Please enter the filename of a .txt file listing current suppliers.");
+                fileName = kb.nextLine();
+                File suppliersFile = new File("database\\" + fileName);
+                br = new BufferedReader(new FileReader(suppliersFile));
+                fileFound = true;
+            } catch (FileNotFoundException e) {
+                System.out.println("That filename does not exist. Try Again!");
+            } catch (Exception e) {
+                System.err.println("Unknown error. Try Again?");
+            }
+        }
+
+    }
+
+    private static ArrayList<Supplier> fillSuppliers() {
+        ArrayList<Supplier> supplierList = new ArrayList<Supplier>();
+        String supLine;
+        String[] supFields;
+        
+        try {
+            while ((supLine = br.readLine()) != null) {
+                supFields = supLine.split(";");
+                var aSupplier = new Supplier(Integer.parseInt(supFields[0]), supFields[1], supFields[2], 
+                                                supFields[3]);
+                supplierList.add(aSupplier);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Number formats in file are invalid");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("readLine() failed to read the file");
+            e.printStackTrace();
+        }
+        return supplierList;
+    }
 }
