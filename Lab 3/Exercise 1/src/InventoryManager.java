@@ -35,5 +35,15 @@ public class InventoryManager {
      */
     public static void itemSale() {
         System.out.println("Provide item name:");
-    } 
+    }
+    
+    public static Integer searchName(String itemName) {
+        Integer index = null;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getToolName() == itemName) {
+                index = i;
+            }
+        }
+        return index;
+    }
 }

@@ -52,4 +52,8 @@ public class Tool {
     public void decreaseItem(int itemsSold) {
         this.stock -= itemsSold;
     }
+
+    public String getToolName() {
+        return this.toolname;
+    }
 }
