@@ -7,11 +7,19 @@ public class Supplier {
     private String salescontact;
 
 
-    public Supplier(int aId, String anAddress,String  aCompanyName,String aSalesContact){
+    public Supplier(int aId, String aCompanyName,String  anAddress,String aSalesContact){
         this.id = aId;
         this.address = anAddress;
         this.companyname = aCompanyName;
         this.salescontact = aSalesContact;
+    }
+
+    public String getName() {
+        return this.companyname;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
     public String toString(){

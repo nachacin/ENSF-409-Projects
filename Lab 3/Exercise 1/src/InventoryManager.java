@@ -57,7 +57,10 @@ public class InventoryManager {
 
         inventory.get(indexFound).decreaseItem(amountSold);
         if (inventory.get(indexFound).getToolStock() < 40) {
-            //Order.placeOrder(inventory, indexFound, amountSold);
+            int indexSupplier = supplierIdSearch(Integer.parseInt(inventory.get(indexFound).getSupplierID()));
+            Order.placeOrder(inventory.get(indexFound).getToolName(),
+                             suppliers.get(indexSupplier).getName(),
+                             50 - inventory.get(indexFound).getToolStock());
         }
     }
     
@@ -73,17 +76,31 @@ public class InventoryManager {
         return index;
     }
 
-    public static Integer searchID(String itemName) {
+    public static Integer searchID(String itemID) {
         Integer index = null;
+        int id = Integer.parseInt(itemID);
 
         for (int i = 0; i < inventory.size(); i++){
-            if(Integer.parseInt(itemName) == (inventory.get(i).getID())){
+            if(id == (inventory.get(i).getID())) {
                 index = i;
                 break;
             }
         }
         return index;
     }
+
+    public static int supplierIdSearch(int Id) {
+        Integer index = null;
+        for (int i = 0; i < suppliers.size(); i++){
+            if(Id == (suppliers.get(i).getID())) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+
 
     public static void printSearchToolName(int index) {
         System.out.println("We found " + inventory.get(index).getToolName() + " in our inventory!");

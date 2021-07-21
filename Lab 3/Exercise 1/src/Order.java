@@ -15,36 +15,27 @@ public class Order {
      * Find LocalDate
      * 
      * @param toolArray
-<<<<<<< HEAD
      */
 
-=======
-     
->>>>>>> refs/remotes/remrepo/main
-    public static void placeOrder(ArrayList<Tool> toolArray, int index, int ordered) {
+    public static void placeOrder(String aToolName, String aSupplierName, int anAmaunt) {
         if (ordersMade == 0) {
           ordersFile = createOrdersFile();
           addHeader();
+          addOrder(aToolName, aSupplierName, anAmaunt);
         } else {
-          addOrder();
+          addOrder(aToolName, aSupplierName, anAmaunt);
         }
         
     }
 
-    public static int createID(){
+    public static String createID(){
         Random rand = new Random();
-        return 10000 + rand.nextInt(100000);
+        return Integer.toString(10000 + rand.nextInt(100000));
     }
-<<<<<<< HEAD
     
     private static File createOrdersFile() {
         File pastFile = new File("database\\orders.txt");
         boolean fileDeleted;
-=======
-    /**
-    private static void createOrdersFile() {
-        File pastFile;
->>>>>>> refs/remotes/remrepo/main
         try {
           fileDeleted = Files.deleteIfExists(pastFile.toPath());
           if (fileDeleted) {
@@ -68,13 +59,13 @@ public class Order {
         }
         return newOrdersFile;
     }
-    */
+  
 
     private static void addHeader() {
       try {
         FileWriter writer = new FileWriter("database\\orders.txt");
         writer.write("**********************************************************************\n");
-        writer.write("*                       Orders - " + LocalDate.now() + "             *\n");
+        writer.write("*                           Orders - " + LocalDate.now() + "                      *\n");
         writer.write("**********************************************************************\n");
         writer.close();
         System.out.println("Header has been added to orders.txt");
@@ -83,4 +74,22 @@ public class Order {
         e.printStackTrace();
       }
     }
-}
+
+    private static void addOrder(String toolName, String supplierName, int amaunt) {
+      try {
+        FileWriter writer = new FileWriter("database\\orders.txt", true);
+        writer.write(String.format("%-25s %-55s\n", "ORDER ID:", createID()));
+        writer.write(String.format("%-25s %-55s\n", "Date Ordered:", LocalDate.now()));
+        writer.write("\n");
+        writer.write(String.format("%-25s %-55s\n", "Item Description:", toolName));
+        writer.write(String.format("%-25s %-55s\n", "Amount Ordered:", amaunt));
+        writer.write(String.format("%-25s %-55s\n", "Supplier:", supplierName));
+        writer.write("**********************************************************************\n");
+        writer.close();
+        System.out.println("Header has been added to orders.txt");
+      } catch (IOException e) {
+        System.out.println("Error! unable to write to orders.txt");
+        e.printStackTrace();
+      }
+    }
+  }
