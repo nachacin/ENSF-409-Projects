@@ -15,18 +15,6 @@ public class Tool {
         this.supplierID = aSupplierID;
     }
 
-    public boolean lowStock(int quantity)
-    {
-        if(quantity < 40){
-
-            System.out.println("This item is low in stock.");
-            return true;
-        }
-        
-        System.out.println("This item is in stock.");
-        return false;
-    }
-
     public String toString() {
         String str = String.valueOf(this.id) + " " + this.toolName + " " + this.stock + " " + this.price + " " + this.supplierID;
         return str;
@@ -45,5 +33,9 @@ public class Tool {
 
     public String getToolName() {
         return this.toolName;
+    }
+
+    public int getToolStock() {
+        return this.stock;
     }
 }

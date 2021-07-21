@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,7 +44,7 @@ public class InventoryManager {
     public static void itemSale() {
         String itemName;
         Integer amountSold;
-        Integer indexOf;
+        Integer indexFound;
 
         System.out.println("Provide item name:");
         Scanner kb = new Scanner(System.in);
@@ -55,11 +52,12 @@ public class InventoryManager {
         System.out.println("Provide how many items sold:");
         amountSold = Integer.parseInt(kb.nextLine());
 
-        indexOf = searchName(itemName);
+        indexFound = searchName(itemName);
 
-        inventory.get(indexOf).decreaseItem(amountSold);
-
-        Order.placeOrder(inventory, indexOf, amountSold);
+        inventory.get(indexFound).decreaseItem(amountSold);
+        if (inventory.get(indexFound).getToolStock() < 40) {
+            Order.placeOrder(inventory, indexFound, amountSold);
+        }
     }
     
     public static Integer searchName(String itemName) {
@@ -68,6 +66,7 @@ public class InventoryManager {
         for (int i = 0; i < inventory.size(); i++) {
             if (itemName.equals(inventory.get(i).getToolName())) {
                 index = i;
+                break;
             }
         }
 

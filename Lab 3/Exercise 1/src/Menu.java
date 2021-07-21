@@ -1,10 +1,19 @@
 import java.util.Scanner;
 
+/**
+ * The definition of this class is heavily inspired by the "Menu" class written in
+ * the "Basic Menu System in Java" YouTube video (https://youtu.be/25kUc_ammbw) by
+ * channel "Intro to Computer Science"
+ */
 public class Menu {
     static boolean exit;
+
+    /**
+     * main method used for debugging the Menu class
+     * @param args
+     */
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.runMenu();
+        Menu.runMenu();
     }
 
     public static void runMenu(){
