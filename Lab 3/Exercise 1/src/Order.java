@@ -14,7 +14,7 @@ public class Order {
      * Find LocalDate
      * 
      * @param toolArray
-     */
+     
     public static void placeOrder(ArrayList<Tool> toolArray, int index, int ordered) {
         if (ordersMade == 0) {
             createOrdersFile();
@@ -27,9 +27,9 @@ public class Order {
         Random rand = new Random();
         return 10000 + rand.nextInt(100000);
     }
-    
+    /**
     private static void createOrdersFile() {
-        File pastFile 
+        File pastFile;
         try {
             File ordersFile = new File("orders.txt");
             if (ordersFile.createNewFile()) {
@@ -42,5 +42,6 @@ public class Order {
             e.printStackTrace();
           }
     }
+    */
 
 }

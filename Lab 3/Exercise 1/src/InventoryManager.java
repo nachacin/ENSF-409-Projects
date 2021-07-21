@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.sound.midi.SysexMessage;
-
 public class InventoryManager {
     private static ArrayList<Tool> inventory;
     private static ArrayList<Supplier> suppliers;
@@ -58,7 +56,7 @@ public class InventoryManager {
 
         inventory.get(indexFound).decreaseItem(amountSold);
         if (inventory.get(indexFound).getToolStock() < 40) {
-            Order.placeOrder(inventory, indexFound, amountSold);
+            //Order.placeOrder(inventory, indexFound, amountSold);
         }
     }
     
@@ -96,5 +94,22 @@ public class InventoryManager {
         System.out.println("We found " + inventory.get(index).getID() + " in our inventory!");
         System.out.println("Here are its details:\n" + "Tool Name: " + inventory.get(index).getToolName() + "\nStock: " + inventory.get(index).getToolStock()
                              + "\nPrice: " + inventory.get(index).getPrice());
+    }
+
+    public static void printItemQuantity(int index) {
+        System.out.println("We have " + inventory.get(index).getToolStock() + " units of " + inventory.get(index).getToolName());
+    }
+
+    public static void printAllTools() {
+        System.out.println("+----------------------------------------------------------------+\n");
+        System.out.println(String.format("%-10s %-20s %-8s %-8s %-15s", "Tool ID", "Tool Name", "Stock", "Price", "SupplierID"));
+        System.out.println("+----------------------------------------------------------------+\n");
+
+        for(Tool str : inventory){
+            System.out.format("%-10d %-20s %-8d %-8.2f %-15s", str.getID(), str.getToolName(), str.getToolStock(), str.getPrice(), str.getSupplierID());
+            System.out.println();
+
+        }
+
     }
 }
