@@ -21,9 +21,10 @@ public class StartUp {
         while(!fileFound) {
 
             try {
-                System.out.println("Please enter the filename of a .txt file containing the current itemized inventory.");
-                fileName = kb.nextLine();
-                File itemsFile = new File("database\\" + fileName);
+                // System.out.println("Please enter the filename of a .txt file containing the current itemized inventory.");
+                // fileName = kb.nextLine();
+                // File itemsFile = new File("database\\" + fileName);
+                File itemsFile = new File("database\\items.txt");
                 br = new BufferedReader(new FileReader(itemsFile));
                 fileFound = true;
             } catch (FileNotFoundException e) {
@@ -69,9 +70,10 @@ public class StartUp {
         while(!fileFound) {
 
             try {
-                System.out.println("Please enter the filename of a .txt file listing current suppliers.");
-                fileName = kb.nextLine();
-                File suppliersFile = new File("database\\" + fileName);
+                // System.out.println("Please enter the filename of a .txt file listing current suppliers.");
+                // fileName = kb.nextLine();
+                // File suppliersFile = new File("database\\" + fileName);
+                File suppliersFile = new File("database\\suppliers.txt");
                 br = new BufferedReader(new FileReader(suppliersFile));
                 fileFound = true;
             } catch (FileNotFoundException e) {

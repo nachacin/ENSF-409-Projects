@@ -17,9 +17,10 @@ public class Menu {
     }
     
     private static void printHeader() {
-        System.out.println("+-------------------------------------------+");
-        System.out.println("|            Inventory Manager              |");
-        System.out.println("+-------------------------------------------+");
+        System.out.println("");
+        System.out.println("+----------------------------------------------------------+");
+        System.out.println("|                    Inventory Manager                     |");
+        System.out.println("+----------------------------------------------------------+");
     }
 
     private static void printMenu(){

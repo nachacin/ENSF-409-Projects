@@ -16,10 +16,15 @@ public class InventoryManager {
         var suppliers = new ArrayList<Supplier>();
         suppliers = StartUp.getSuppliers();
 
+        // Testing ArrayList<Tool> object
+        System.out.println("\n|-- Testing ArrayList<Tool> object --|");
         System.out.println(inventory.get(2));
+        // Testing decreaseItem() on ArrayList<Tool> object
+        System.out.println("\n|-- Testing decreaseItem() on ArrayList<Tool> object --|");
         inventory.get(2).decreaseItem(2);
         System.out.println(inventory.get(2));
-
+        // Testing ArrayList<Supplier> object
+        System.out.println("\n|-- Testing ArrayList<Supplier> object --|");
         System.out.println(suppliers.get(2));
 
         
