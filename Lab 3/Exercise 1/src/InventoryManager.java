@@ -2,10 +2,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class InventoryManager {
-
+    private static ArrayList<Tool> inventory;
+    private static ArrayList<Supplier> supplier;
     // fields
 
     public static void main(String[] args) throws Exception {
@@ -34,4 +34,14 @@ public class InventoryManager {
         Menu.runMenu();
         //System.out.println(suppliers);       
     }
+
+    /**
+     * Ask the user how many sold
+     * Loop through tool arrays until item is found
+     * decrease item stock field by amount sold
+     * if new stock is < 40, call Order to make order.
+     */
+    public static void decreaseItem() {
+
+    } 
 }
