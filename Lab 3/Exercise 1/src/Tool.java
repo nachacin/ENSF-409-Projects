@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Tool {
     private int id;
-    private String toolname;
+    private String toolName;
     private int stock;
     private double price;
     private String supplierID;
 
     public Tool(int anId, String aToolName, int aStock, double aPrice, String aSupplierID) {
         this.id = anId;
-        this.toolname = aToolName;
+        this.toolName = aToolName;
         this.stock = aStock;
         this.price = aPrice;
         this.supplierID = aSupplierID;
@@ -28,7 +28,7 @@ public class Tool {
     }
 
     public String toString() {
-        String str = String.valueOf(this.id) + " " + this.toolname + " " + this.stock + " " + this.price + " " + this.supplierID;
+        String str = String.valueOf(this.id) + " " + this.toolName + " " + this.stock + " " + this.price + " " + this.supplierID;
         return str;
     }
 
@@ -44,6 +44,6 @@ public class Tool {
     }
 
     public String getToolName() {
-        return this.toolname;
+        return this.toolName;
     }
 }

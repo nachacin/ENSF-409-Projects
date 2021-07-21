@@ -6,16 +6,12 @@ import java.util.Scanner;
 
 public class InventoryManager {
     private static ArrayList<Tool> inventory;
-    private static ArrayList<Supplier> supplier;
-
-    // fields
+    private static ArrayList<Supplier> suppliers;
 
     public static void main(String[] args) throws Exception {
-        var inventory = new ArrayList<Tool>();
-        inventory = StartUp.getInventory();
-        var suppliers = new ArrayList<Supplier>();
-        suppliers = StartUp.getSuppliers();
-
+        inventoryInit();
+        suppliersInit();
+        
         // Testing ArrayList<Tool> object
         System.out.println("\n|-- Testing ArrayList<Tool> object --|");
         System.out.println(inventory.get(2));
@@ -27,10 +23,18 @@ public class InventoryManager {
         System.out.println("\n|-- Testing ArrayList<Supplier> object --|");
         System.out.println(suppliers.get(2));
 
-        
-
         Menu.runMenu();
         //System.out.println(suppliers);       
+    }
+
+    public static void inventoryInit() {
+        inventory = new ArrayList<Tool>();
+        inventory = StartUp.getInventory();
+    }
+
+    public static void suppliersInit() {
+        suppliers = new ArrayList<Supplier>();
+        suppliers = StartUp.getSuppliers();
     }
 
     /**
@@ -46,10 +50,10 @@ public class InventoryManager {
         Integer indexOf;
 
         System.out.println("Provide item name:");
-        Scanner in = new Scanner(System.in);
-        itemName = in.nextLine();
+        Scanner kb = new Scanner(System.in);
+        itemName = kb.nextLine();
         System.out.println("Provide how many items sold:");
-        amountSold = Integer.parseInt(in.nextLine());
+        amountSold = Integer.parseInt(kb.nextLine());
 
         indexOf = searchName(itemName);
 
@@ -60,11 +64,13 @@ public class InventoryManager {
     
     public static Integer searchName(String itemName) {
         Integer index = null;
+        
         for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getToolName() == itemName) {
+            if (itemName.equals(inventory.get(i).getToolName())) {
                 index = i;
             }
         }
+
         return index;
     }
 }
