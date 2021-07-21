@@ -6,6 +6,7 @@ import javax.sound.midi.SysexMessage;
 public class InventoryManager {
     private static ArrayList<Tool> inventory;
     private static ArrayList<Supplier> suppliers;
+    private static final int RESTOCK_AMOUNT = 50;
 
     public static void main(String[] args) throws Exception {
         inventoryInit();
