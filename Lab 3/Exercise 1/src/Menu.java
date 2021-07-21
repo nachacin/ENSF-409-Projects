@@ -52,6 +52,9 @@ public class Menu {
                 System.out.println("Inventory Manager Terminated");
                 break;
             case 1:
+
+            case 5:
+                InventoryManager.itemSale();
                 
         
             default:

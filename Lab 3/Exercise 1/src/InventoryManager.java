@@ -40,12 +40,13 @@ public class InventoryManager {
     }
 
     /**
+     * Ask the user for item name
      * Ask the user how many sold
-     * Loop through tool arrays until item is found
-     * decrease item stock field by amount sold
+     * perform search to get an index
+     * call inventory.get(index).decreaseItem(itemsSold)
      * if new stock is < 40, call Order to make order.
      */
-    public static void decreaseItem() {
-
+    public static void itemSale() {
+        System.out.println("Provide item name:");
     } 
 }
