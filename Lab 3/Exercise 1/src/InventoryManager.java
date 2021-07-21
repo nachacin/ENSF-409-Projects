@@ -36,21 +36,21 @@ public class InventoryManager {
      * if new stock is < 40, call Order to make order.
      */
     public static void itemSale() {
-        String itemname;
-        Integer itemsold;
+        String itemName;
+        Integer amountSold;
         Integer indexOf;
 
         System.out.println("Provide item name:");
         Scanner in = new Scanner(System.in);
-        itemname = in.nextLine();
+        itemName = in.nextLine();
         System.out.println("Provide how many items sold:");
-        itemsold = Integer.parseInt(in.nextLine());
+        amountSold = Integer.parseInt(in.nextLine());
 
-        indexOf = searchName(itemname);
+        indexOf = searchName(itemName);
 
-        inventory.get(indexOf).decreaseItem(itemsold);
+        inventory.get(indexOf).decreaseItem(amountSold);
 
-        Order.placeOrder(inventory, indexOf, itemsold);
+        Order.placeOrder(inventory, indexOf, amountSold);
     }
     
     public static Integer searchName(String itemName) {

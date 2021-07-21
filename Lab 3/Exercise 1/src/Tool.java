@@ -15,16 +15,6 @@ public class Tool {
         this.supplierID = aSupplierID;
     }
 
-    /** 
-    public searchName(String name, List array) {
-        for (Tools e : array){
-            if(e.toolname == name) {
-                return e.toString();
-            }
-            break;
-        }
-    }
-    */
     public boolean lowStock(int quantity)
     {
         if(quantity < 40){
