@@ -3,20 +3,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class serves to generate orders and print them to a file. Much of this code,
+ * particularly the methods related to file opening and writing, is based on snippets
+ * from W3Schools (Specifically: https://www.w3schools.com/java/java_files_create.asp)
+ */
 public class Order {
     private static int ordersMade = 0;
     private static File ordersFile;
     
-    /**
-     * Create Order ID, 5-digit ID
-     * Find LocalDate
-     * 
-     * @param toolArray
-     */
-
     public static void placeOrder(String aToolName, String aSupplierName, int anAmaunt) {
         if (ordersMade == 0) {
           ordersFile = createOrdersFile();
@@ -24,8 +21,7 @@ public class Order {
           addOrder(aToolName, aSupplierName, anAmaunt);
         } else {
           addOrder(aToolName, aSupplierName, anAmaunt);
-        }
-        
+        } 
     }
 
     public static String createID(){
@@ -63,12 +59,11 @@ public class Order {
 
     private static void addHeader() {
       try {
-        FileWriter writer = new FileWriter("database\\orders.txt");
+        FileWriter writer = new FileWriter(ordersFile);
         writer.write("**********************************************************************\n");
-        writer.write("*                           Orders - " + LocalDate.now() + "                      *\n");
+        writer.write("*                         Orders - " + LocalDate.now() + "                        *\n");
         writer.write("**********************************************************************\n");
         writer.close();
-        System.out.println("Header has been added to orders.txt");
       } catch (IOException e) {
         System.out.println("Error! unable to write to orders.txt");
         e.printStackTrace();
@@ -77,7 +72,7 @@ public class Order {
 
     private static void addOrder(String toolName, String supplierName, int amaunt) {
       try {
-        FileWriter writer = new FileWriter("database\\orders.txt", true);
+        FileWriter writer = new FileWriter(ordersFile, true);
         writer.write(String.format("%-25s %-55s\n", "ORDER ID:", createID()));
         writer.write(String.format("%-25s %-55s\n", "Date Ordered:", LocalDate.now()));
         writer.write("\n");
@@ -86,7 +81,7 @@ public class Order {
         writer.write(String.format("%-25s %-55s\n", "Supplier:", supplierName));
         writer.write("**********************************************************************\n");
         writer.close();
-        System.out.println("Header has been added to orders.txt");
+        ordersMade++;
       } catch (IOException e) {
         System.out.println("Error! unable to write to orders.txt");
         e.printStackTrace();

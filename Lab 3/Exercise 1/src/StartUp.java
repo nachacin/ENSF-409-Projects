@@ -33,7 +33,6 @@ public class StartUp {
                 System.err.println("Unknown error. Try Again?");
             }
         }
-
     }
 
     private static ArrayList<Tool> fillTools() {

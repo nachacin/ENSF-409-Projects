@@ -9,20 +9,7 @@ public class InventoryManager {
     public static void main(String[] args) throws Exception {
         inventoryInit();
         suppliersInit();
-        
-        // Testing ArrayList<Tool> object
-        System.out.println("\n|-- Testing ArrayList<Tool> object --|");
-        System.out.println(inventory.get(2));
-        // Testing decreaseItem() on ArrayList<Tool> object
-        System.out.println("\n|-- Testing decreaseItem() on ArrayList<Tool> object --|");
-        inventory.get(2).decreaseItem(2);
-        System.out.println(inventory.get(2));
-        // Testing ArrayList<Supplier> object
-        System.out.println("\n|-- Testing ArrayList<Supplier> object --|");
-        System.out.println(suppliers.get(2));
-
-        Menu.runMenu();
-        //System.out.println(suppliers);       
+        Menu.runMenu();   
     }
 
     public static void inventoryInit() {
@@ -35,13 +22,6 @@ public class InventoryManager {
         suppliers = StartUp.getSuppliers();
     }
 
-    /**
-     * Ask the user for item name
-     * Ask the user how many sold
-     * perform search to get an index
-     * call inventory.get(index).decreaseItem(itemsSold)
-     * if new stock is < 40, call Order to make order.
-     */
     public static void itemSale() {
         String itemName;
         Integer amountSold;
@@ -60,7 +40,7 @@ public class InventoryManager {
             int indexSupplier = supplierIdSearch(Integer.parseInt(inventory.get(indexFound).getSupplierID()));
             Order.placeOrder(inventory.get(indexFound).getToolName(),
                              suppliers.get(indexSupplier).getName(),
-                             50 - inventory.get(indexFound).getToolStock());
+                             RESTOCK_AMOUNT - inventory.get(indexFound).getToolStock());
         }
     }
     
