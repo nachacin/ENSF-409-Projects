@@ -28,7 +28,11 @@ public class Registration {
 		theStudent.addToRecords(this);
 		theOffering.recordRegistration(this);
 	}
-	
+
+	// private void subtractRegistration() {
+	// 	theStudent.removeFromRecords(this);
+	// 	theOffering.sabotageRegistration(this);
+	// }
 	
 	public Student getTheStudent() {
 		return theStudent;
@@ -37,7 +41,7 @@ public class Registration {
 		this.theStudent = theStudent;
 	}
 	public CourseOffering getTheOffering() {
-		return theOffering;
+		return this.theOffering;
 	}
 	public void setTheOffering(CourseOffering theOffering) {
 		this.theOffering = theOffering;
@@ -52,7 +56,7 @@ public class Registration {
 	@Override
 	public String toString () {
 		String st = "\n";
-		st += "Student Name: " + getTheStudent() + "\n";
+		st += getTheStudent() + "\n";
 		st += "The Offering: " + getTheOffering () + "\n";
 		st += "Grade: " + getGrade();
 		st += "\n-----------\n";

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CourseCatalogue {
 	
@@ -12,6 +13,7 @@ public class CourseCatalogue {
 		// TODO Auto-generated method stub
 		DBManager db = new DBManager(this);
 		setCourseList(db.readFromDataBase());
+		Menu.setDBManager(db);
 		
 		
 	}
@@ -47,6 +49,7 @@ public class CourseCatalogue {
 	public void setCourseList(ArrayList <Course> courseList) {
 		this.courseList = courseList;
 	}
+
 	@Override
 	public String toString () {
 		String st = "All courses in the catalogue: \n";
