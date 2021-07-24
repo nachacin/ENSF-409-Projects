@@ -1,17 +1,19 @@
 import java.util.ArrayList;
 
+// CourseOffering = section of a particular course
+
 public class CourseOffering {
 	
 	private int secNum;
 	private int secCap;
 	private Course theCourse;
-	//private ArrayList<Student> studentList;
-	private ArrayList <Registration> offeringRegList;
+	private ArrayList<Student> currentEnrolment;
+	private ArrayList<Registration> offeringRegRecord; // all students ever enrolled + currently enrolled students
 	
 	public CourseOffering (int secNum, int secCap) {
 		this.setSecNum(secNum);
 		this.setSecCap(secCap);
-		offeringRegList = new ArrayList <Registration>();
+		offeringRegRecord = new ArrayList <Registration>();
 	}
 	public int getSecNum() {
 		return secNum;
@@ -39,9 +41,10 @@ public class CourseOffering {
 		//We also want to print the names of all students in the section
 		return st;
 	}
-	public void addRegistration(Registration registration) {
+
+	public void addRegistration(Registration anEntry) {
 		// TODO Auto-generated method stub
-		offeringRegList.add(registration);
+		offeringRegRecord.add(anEntry);
 		
 	}
 	

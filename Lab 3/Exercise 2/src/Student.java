@@ -4,7 +4,7 @@ public class Student {
 	
 	private String studentName;
 	private int studentId;
-	//private ArrayList<CourseOffering> offeringList;
+	private ArrayList<CourseOffering> schedule;
 	private ArrayList<Registration> studentRegList;
 	
 	public Student (String studentName, int studentId) {
@@ -14,7 +14,7 @@ public class Student {
 	}
 
 	public String getStudentName() {
-		return studentName;
+		return this.studentName;
 	}
 
 	public void setStudentName(String studentName) {
