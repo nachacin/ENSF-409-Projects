@@ -42,7 +42,7 @@ public class CourseOffering {
 		return st;
 	}
 
-	public void addRegistration(Registration anEntry) {
+	public void recordRegistration(Registration anEntry) {
 		// TODO Auto-generated method stub
 		offeringRegRecord.add(anEntry);
 		

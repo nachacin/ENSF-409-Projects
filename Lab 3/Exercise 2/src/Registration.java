@@ -18,14 +18,15 @@ public class Registration {
 	}
 	
 	void completeRegistration (Student st, CourseOffering of) {
+		// prereq check implement here.
 		theStudent = st;
 		theOffering = of;
-		addRegistration ();
+		this.addRegistration ();
 	}
 	
 	private void addRegistration () {
-		theStudent.addRegistration(this);
-		theOffering.addRegistration(this);
+		theStudent.addToRecords(this);
+		theOffering.recordRegistration(this);
 	}
 	
 	

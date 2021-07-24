@@ -4,8 +4,8 @@ public class Student {
 	
 	private String studentName;
 	private int studentId;
-	private ArrayList<CourseOffering> schedule;
-	private ArrayList<Registration> studentRegList;
+	private ArrayList<CourseOffering> schedule; // Current
+	private ArrayList<Registration> studentRegList; // Past + Current
 	
 	public Student (String studentName, int studentId) {
 		this.setStudentName(studentName);
@@ -35,7 +35,7 @@ public class Student {
 		return st;
 	}
 
-	public void addRegistration(Registration registration) {
+	public void addToRecords(Registration registration) {
 		// TODO Auto-generated method stub
 		studentRegList.add(registration);
 	}
