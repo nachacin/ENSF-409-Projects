@@ -110,10 +110,13 @@ public class Menu {
 
             case 4:
                 //View all courses in catalogue
+                System.out.println(catalogue + "\n\n");
+                break;
 
 
             case 5:
                 //View all courses taken by student
+                dbmanager.searchDBstudent(studentname, studentid).getSchedule();
 
             default:
                 break;

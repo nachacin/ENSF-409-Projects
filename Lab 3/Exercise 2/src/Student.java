@@ -22,6 +22,10 @@ public class Student {
 
 	}
 
+	public void getSchedule() {
+		System.out.println(schedule);
+	}
+
 	public String getStudentName() {
 		return this.studentName;
 	}
