@@ -9,8 +9,7 @@ public class CourseOffering {
 	private Course theCourse;
 	private ArrayList<Student> currentEnrolment;
 	private ArrayList<Registration> offeringRegRecord; // all students ever enrolled + currently enrolled students
-	private Student removeStudent;
-	private Registration removeRegistration;
+
 	public CourseOffering (int secNum, int secCap) {
 		this.setSecNum(secNum);
 		this.setSecCap(secCap);
@@ -63,12 +62,20 @@ public class CourseOffering {
 
 	}
 
-	public void removeReg(Student student) {
+	public void removeReg(Student student, Registration registration) {
+		Student removeStudent = null;
+		Registration removeRegistration = null;
 
 		for(Student se : currentEnrolment)
 		{
 			if(se.equals(student))
 				removeStudent = se;
+		}
+
+		for(Registration rr : offeringRegRecord)
+		{
+			if (rr.equals(registration))
+				removeRegistration = rr;
 		}
 
 		//System.out.println(offeringRegRecord);

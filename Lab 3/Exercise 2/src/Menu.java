@@ -105,7 +105,7 @@ public class Menu {
                 System.out.println("What is the number of the course you wish to drop?");
                 num = Integer.parseInt(kb.nextLine());
                 dbmanager.searchDBstudent(studentname, studentid).getStuOffering(catalogue.searchCat(name, num), regStudent);
-                courseoffering.removeReg(dbmanager.searchDBstudent(studentname, studentid));
+                courseoffering.removeReg(dbmanager.searchDBstudent(studentname, studentid), regStudent);
                 break;
 
             case 4:
