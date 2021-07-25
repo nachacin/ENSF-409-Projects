@@ -31,8 +31,15 @@ public class Student {
 
 	public void getSchedule() {
 		//System.out.println(schedule);
+		String status;
 		for(CourseOffering e : this.schedule) {
-			System.out.println(e.getTheCourse().getCourseName() + " " + e.getTheCourse().getCourseNum() + " Section No: " + e.getSecNum() + "\n");
+			if(e.getOfferingStatus() == true){
+				status = "Confirmed.";
+				System.out.println(e.getTheCourse().getCourseName() + " " + e.getTheCourse().getCourseNum() + ", Section No: " + e.getSecNum() + ", Status: "+ status +"\n");
+			} else {
+				status = "Tentative.";
+				System.out.println(e.getTheCourse().getCourseName() + " " + e.getTheCourse().getCourseNum() + ", Section No: " + e.getSecNum() + ", Status: "+ status +"\n");
+			}
 		}
 	}
 

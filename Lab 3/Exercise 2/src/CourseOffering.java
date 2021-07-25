@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
-// CourseOffering = section of a particular course
-/**
- * @author Nasih Nazeem
- */
+
 public class CourseOffering {
 	
 	// Section Number of the Course
@@ -58,10 +55,20 @@ public class CourseOffering {
 	@Override
 	public String toString () {
 		String st = "\n";
+		String status;
+
+		if(getOfferingStatus() == true) {
+			status = "Confirmed.";
+		} else {
+			status = "Tentative.";
+		}
+
 		st += getTheCourse().getCourseName() + " " + getTheCourse().getCourseNum() + "\n";
-		st += "Section Num: " + getSecNum() + ", section cap: "+ getSecCap() +"\n";
+		st += "Section Num: " + getSecNum() + ", section cap: "+ getSecCap() + ", Status: " + status + "\n";
 		//We also want to print the names of all students in the section
 		st += "Students in this course:\n" + this.currentEnrolment;
+		
+
 		return st;
 	}
 
@@ -74,7 +81,15 @@ public class CourseOffering {
 	public void addToStudentEnrollment(Registration offerReg) {
 
 		currentEnrolment.add(offerReg.getTheStudent());
-
+		if(currentEnrolment.size() >= 8){
+			this.minEnrolmentMet = true;
+		} else {
+			System.out.println("This course's enrolment is still too low to create a section. As of now, these registrations are tentative.");
+		}
+	}
+	
+	public boolean getOfferingStatus() {
+		return this.minEnrolmentMet;
 	}
 
 	public void removeReg(Student student, Registration registration) {
