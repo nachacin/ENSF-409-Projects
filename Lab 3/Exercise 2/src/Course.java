@@ -47,6 +47,8 @@ public class Course {
 	public void addCoursePreReq (Course preReq) {
 		this.preReqs.add(preReq);
 	}
+
+	
 	@Override
 	public String toString () {
 		String st = "\n";
@@ -65,5 +67,4 @@ public class Course {
 		else
 			return sections.get(i);
 	}
-
 }

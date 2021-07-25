@@ -56,5 +56,4 @@ public class CourseCatalogue {
 		}
 		return st;
 	}
-
 }
