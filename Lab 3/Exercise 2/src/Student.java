@@ -22,6 +22,10 @@ public class Student {
 
 	}
 
+	public int getScheduleSize() {
+		return this.schedule.size();
+	}
+
 	public void getSchedule() {
 		//System.out.println(schedule);
 		for(CourseOffering e : this.schedule) {

@@ -88,15 +88,20 @@ public class Menu {
                 
             case 2:
                 //Add course to student courses
-                System.out.println("What is name of the course you wish to enroll into?");
-                name = kb.nextLine();
-                System.out.println("What is the number of the course you wish to enroll into?");
-                num = Integer.parseInt(kb.nextLine());
-                var cOffering = catalogue.searchCat(name,num).getCourseOfferingAt(0);
-                regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), cOffering);
-                //System.out.println(regStudent);
-                dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
-                cOffering.addToStudentEnrollment(regStudent);
+                if(dbmanager.searchDBstudent(studentname, studentid).getScheduleSize() < 6){
+                    System.out.println("What is name of the course you wish to enroll into?");
+                    name = kb.nextLine();
+                    System.out.println("What is the number of the course you wish to enroll into?");
+                    num = Integer.parseInt(kb.nextLine());
+                    var cOffering = catalogue.searchCat(name,num).getCourseOfferingAt(0);
+                    regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), cOffering);
+                    //System.out.println(regStudent);
+                    dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
+                    cOffering.addToStudentEnrollment(regStudent);
+                } else {
+                    System.out.println("You have reached the maximum amount of courses you can enroll in.");
+                }
+                
                 break;
 
             case 3:
