@@ -167,6 +167,8 @@ public class DBManager {
 		System.out.println("Student not found in Database search");
 		return null;
 	}
+
+
 	private void displayDBsetUpError() {
 		// TODO Auto-generated method stub
 		System.err.println("Database was set up wrong!");

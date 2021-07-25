@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 
+
 public class Student {
 	
 	private String studentName;
 	private int studentId;
 	private ArrayList<CourseOffering> schedule; // Current
 	private ArrayList<Registration> studentRegList; // Past + Current
+	private CourseOffering removeCoffering;
+	private Registration removeReg;
 	
 	public Student (String studentName, int studentId) {
 		this.setStudentName(studentName);
@@ -14,13 +17,9 @@ public class Student {
 		schedule = new ArrayList<CourseOffering>();
 	}
 
-	public void addToSchedule(Registration rStu){
+	public void addToSchedule(Registration rStu) {
 		
 		schedule.add(rStu.getTheOffering());
-
-	}
-	public void removeStuReg(Registration stuReg){
-
 
 	}
 
@@ -49,13 +48,28 @@ public class Student {
 	public void addToRecords(Registration registration) {
 		// TODO Auto-generated method stub
 		studentRegList.add(registration);
+		
 	}
 
-	public void getStuOffering(Course course) {
-		for(CourseOffering ce : schedule){
-			if()
-				schedule.remove(ce);
+	public void getStuOffering(Course course, Registration registration) {
+		
+		for(CourseOffering ce : schedule)
+		{
+			if((ce.getTheCourse()).equals(course))
+				removeCoffering = ce;
 		}
+
+		for(Registration rr : studentRegList)
+		{
+			if(rr.equals(registration))
+				removeReg = rr;
+		}
+
+		//System.out.println(schedule);
+		schedule.remove(removeCoffering);
+		studentRegList.remove(removeReg);
+		//System.out.println(schedule);
+		System.out.println(studentRegList);
 
 	}
 

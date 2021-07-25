@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import javax.imageio.plugins.tiff.GeoTIFFTagSet;
 
 public class Menu {
     private static boolean exit;
@@ -9,9 +8,14 @@ public class Menu {
     private static String studentname;
     private static int studentid;
     private static DBManager dbmanager;
+    private static CourseOffering courseoffering;
 
     public static void setDBManager(DBManager dbManager){
         dbmanager = dbManager;
+    }
+
+    public static void setCourseOffering(CourseOffering theOffering){
+        courseoffering = theOffering;
     }
 
     public static void runMenu(CourseCatalogue aCatalogue) {
@@ -89,8 +93,9 @@ public class Menu {
                 num = Integer.parseInt(kb.nextLine());
                 Registration regStudent = new Registration();
                 regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), catalogue.searchCat(name,num).getCourseOfferingAt(0));
-                System.out.println(regStudent);
+                //System.out.println(regStudent);
                 dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
+                courseoffering.addToStudentEnrollment(regStudent);
                 break;
 
             case 3:
@@ -100,10 +105,12 @@ public class Menu {
                 System.out.println("What is the number of the course you wish to drop?");
                 num = Integer.parseInt(kb.nextLine());
                 dbmanager.searchDBstudent(studentname, studentid).getStuOffering(catalogue.searchCat(name, num));
-                
+                courseoffering.removeReg(dbmanager.searchDBstudent(studentname, studentid));
+                break;
 
             case 4:
                 //View all courses in catalogue
+
 
             case 5:
                 //View all courses taken by student

@@ -9,30 +9,39 @@ public class CourseOffering {
 	private Course theCourse;
 	private ArrayList<Student> currentEnrolment;
 	private ArrayList<Registration> offeringRegRecord; // all students ever enrolled + currently enrolled students
-	
+	private Student removeStudent;
+	private Registration removeRegistration;
 	public CourseOffering (int secNum, int secCap) {
 		this.setSecNum(secNum);
 		this.setSecCap(secCap);
 		offeringRegRecord = new ArrayList <Registration>();
+		currentEnrolment = new ArrayList<Student>();
 	}
+
 	public int getSecNum() {
 		return secNum;
 	}
+
 	public void setSecNum(int secNum) {
 		this.secNum = secNum;
 	}
+	
 	public int getSecCap() {
 		return secCap;
 	}
+
 	public void setSecCap(int secCap) {
 		this.secCap = secCap;
 	}
+
 	public Course getTheCourse() {
 		return theCourse;
 	}
+
 	public void setTheCourse(Course theCourse) {
 		this.theCourse = theCourse;
 	}
+	
 	@Override
 	public String toString () {
 		String st = "\n";
@@ -47,6 +56,29 @@ public class CourseOffering {
 		offeringRegRecord.add(anEntry);
 		
 	}
+
+	public void addToStudentEnrollment(Registration offerReg) {
+
+		currentEnrolment.add(offerReg.getTheStudent());
+
+	}
+
+	public void removeReg(Student student) {
+
+		for(Student se : currentEnrolment)
+		{
+			if(se.equals(student))
+				removeStudent = se;
+		}
+
+		//System.out.println(offeringRegRecord);
+		currentEnrolment.remove(removeStudent);
+		offeringRegRecord.remove(removeRegistration);
+		//System.out.println(offeringRegRecord);
+	}
+
+	
+
 	
 	
 

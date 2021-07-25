@@ -35,7 +35,7 @@ public class Registration {
 	// }
 	
 	public Student getTheStudent() {
-		return theStudent;
+		return this.theStudent;
 	}
 	public void setTheStudent(Student theStudent) {
 		this.theStudent = theStudent;

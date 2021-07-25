@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CourseCatalogue {
 	
@@ -20,6 +19,7 @@ public class CourseCatalogue {
 	public void createCourseOffering (Course c, int secNum, int secCap) {
 		if (c!= null) {
 			CourseOffering theOffering = new CourseOffering (secNum, secCap);
+			Menu.setCourseOffering(theOffering);
 			c.addOffering(theOffering);
 		}
 	}
