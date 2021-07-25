@@ -8,16 +8,15 @@ public class Menu {
     private static String studentname;
     private static int studentid;
     private static DBManager dbmanager;
-    private static CourseOffering courseoffering;
     private static Registration regStudent = new Registration();
 
     public static void setDBManager(DBManager dbManager){
         dbmanager = dbManager;
     }
 
-    public static void setCourseOffering(CourseOffering theOffering){
-        courseoffering = theOffering;
-    }
+    // public static void setCourseOffering(CourseOffering theOffering){
+    //     courseoffering = theOffering;
+    // }
 
     public static void runMenu(CourseCatalogue aCatalogue) {
         printHeader();
@@ -49,13 +48,14 @@ public class Menu {
         System.out.println("3 - Remove course from student courses");
         System.out.println("4 - View All courses in catalogue");
         System.out.println("5 - View all courses taken by student");
+        System.out.println("6 - View all students taking a course");
         System.out.println("0 - Quit\n");
     }
 
     private static int getInput() {
         int choice = -1;
 
-        while(choice < 0 || choice > 5) {
+        while(choice < 0 || choice > 6) {
             try {
                 System.out.print("Enter your choice: ");
                 choice = Integer.parseInt(kb.nextLine());
@@ -92,10 +92,11 @@ public class Menu {
                 name = kb.nextLine();
                 System.out.println("What is the number of the course you wish to enroll into?");
                 num = Integer.parseInt(kb.nextLine());
-                regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), catalogue.searchCat(name,num).getCourseOfferingAt(0));
+                var cOffering = catalogue.searchCat(name,num).getCourseOfferingAt(0);
+                regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), cOffering);
                 //System.out.println(regStudent);
                 dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
-                courseoffering.addToStudentEnrollment(regStudent);
+                cOffering.addToStudentEnrollment(regStudent);
                 break;
 
             case 3:
@@ -104,8 +105,9 @@ public class Menu {
                 name = kb.nextLine();
                 System.out.println("What is the number of the course you wish to drop?");
                 num = Integer.parseInt(kb.nextLine());
+                var courseOffering = catalogue.searchCat(name,num).getCourseOfferingAt(0);
                 dbmanager.searchDBstudent(studentname, studentid).getStuOffering(catalogue.searchCat(name, num), regStudent);
-                courseoffering.removeReg(dbmanager.searchDBstudent(studentname, studentid), regStudent);
+                courseOffering.removeReg(dbmanager.searchDBstudent(studentname, studentid), regStudent);
                 break;
 
             case 4:
@@ -117,6 +119,21 @@ public class Menu {
             case 5:
                 //View all courses taken by student
                 dbmanager.searchDBstudent(studentname, studentid).getSchedule();
+                break;
+
+            case 6:
+                System.out.println("Which course name would you like to creep?");
+                name = kb.nextLine();
+                System.out.println("Which course number would you like to creep?");
+                num = Integer.parseInt(kb.nextLine());
+                System.out.println("Which course section do you want to look at?");
+                int sec = Integer.parseInt(kb.nextLine());
+                System.out.println(catalogue.searchCat(name,num).getCourseOfferingAt(sec - 1));
+                break;
+
+
+
+                
 
             default:
                 break;

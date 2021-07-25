@@ -23,7 +23,10 @@ public class Student {
 	}
 
 	public void getSchedule() {
-		System.out.println(schedule);
+		//System.out.println(schedule);
+		for(CourseOffering e : this.schedule) {
+			System.out.println(e.getTheCourse().getCourseName() + " " + e.getTheCourse().getCourseNum() + " Section No: " + e.getSecNum() + "\n");
+		}
 	}
 
 	public String getStudentName() {

@@ -47,6 +47,7 @@ public class CourseOffering {
 		st += getTheCourse().getCourseName() + " " + getTheCourse().getCourseNum() + "\n";
 		st += "Section Num: " + getSecNum() + ", section cap: "+ getSecCap() +"\n";
 		//We also want to print the names of all students in the section
+		st += "Students in this course:\n" + this.currentEnrolment;
 		return st;
 	}
 
