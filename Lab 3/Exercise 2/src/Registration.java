@@ -1,4 +1,8 @@
-
+/**
+ * Instances of this class create a link between a Student object,
+ * a CourseOffering (section) object, and a grade. Registration objects
+ * belong to Students and comprise a Student's academic record
+ */
 public class Registration {
 	private Student theStudent;
 	private CourseOffering theOffering;

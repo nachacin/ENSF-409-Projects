@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 //Assumption, courses are offered every year in the same number of
 //sections. An unlimited number of students may possess registration
-//for any course offering (grade records + current). But 
+//for any course offering (grade records + current). Currently enrolled
+//Students are limited to section caps.
 public class DBManager {
 	
 	private ArrayList<Course> courseList;

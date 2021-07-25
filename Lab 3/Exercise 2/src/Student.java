@@ -5,7 +5,10 @@ public class Student {
 	
 	private String studentName;
 	private int studentId;
-	private ArrayList<CourseOffering> schedule; // Current
+	// schedule is an ArrayList of course offerings (i.e. sections) that a student has enrolled in.
+	private ArrayList<CourseOffering> schedule;
+	// A collection of Registration objects that serves as both a record of previously completed courses
+	// AND for currently enrolled courses.
 	private ArrayList<Registration> studentRegList; // Past + Current
 	
 	
