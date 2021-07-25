@@ -98,7 +98,6 @@ public class Menu {
                     num = Integer.parseInt(kb.nextLine());
                     var cOffering = catalogue.searchCat(name,num).getCourseOfferingAt(0);
                     regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), cOffering);
-                    //System.out.println(regStudent);
                     dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
                     cOffering.addToStudentEnrollment(regStudent);
                 } else {

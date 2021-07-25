@@ -26,6 +26,7 @@ public class DBManager {
 		setCurrentStudents();
 		batchOfferingCreation();
 		batchRegAttempts();
+		batchEnrolAttempts();
 		return courseList;
 	}
 
@@ -103,40 +104,80 @@ public class DBManager {
 
 	
 	private void batchRegAttempts() {
-		attemptRegistration(searchDBstudent("Nestor Chacin", 12388999), 
+		attemptRegistration(searchDBstudent("Nestor Chacin", 1), 
 		                    searchDBcourse("MATH", 211).getCourseOfferingAt(0),
 							'B');
-		attemptRegistration(searchDBstudent("Nestor Chacin", 12388999), 
+		attemptRegistration(searchDBstudent("Nestor Chacin", 1), 
 		                    searchDBcourse("ENGG", 225).getCourseOfferingAt(0),
 							'A');
-		attemptRegistration(searchDBstudent("Nestor Chacin", 12388999), 
+		attemptRegistration(searchDBstudent("Nestor Chacin", 1), 
 		                    searchDBcourse("PHYS", 259).getCourseOfferingAt(0),
 							'B');
-		attemptRegistration(searchDBstudent("Nasih Nazeem", 32199888), 
+		attemptRegistration(searchDBstudent("Nasih Nazeem", 2), 
 		                    searchDBcourse("ENGG", 202).getCourseOfferingAt(0),
 							'A');
-		attemptRegistration(searchDBstudent("Nasih Nazeem", 32199888), 
+		attemptRegistration(searchDBstudent("Nasih Nazeem", 2), 
 		                    searchDBcourse("ENEL", 300).getCourseOfferingAt(0),
 							'A');
-		attemptRegistration(searchDBstudent("Nasih Nazeem", 32199888), 
+		attemptRegistration(searchDBstudent("Nasih Nazeem", 2), 
 		                    searchDBcourse("ENSF", 337).getCourseOfferingAt(0),
 							'A');
 	}
 
-
-
+	private void batchEnrolAttempts () {
+		attemptEnrol(searchDBstudent("Timmy", 1001),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Lizzy", 1010),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Daenerys", 1011),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Bob", 100),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Steve", 101),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+	    attemptEnrol(searchDBstudent("Rambo", 110),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Mo", 111),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+		attemptEnrol(searchDBstudent("Jim", 000),
+		             searchDBcourse("ENEL", 300).getCourseOfferingAt(0));
+	 
+	}
+	
 	private void attemptRegistration (Student aStudent, CourseOffering anOffering, char aGrade) {
 		Registration regAttempt = new Registration(aStudent, anOffering, aGrade);
 		regAttempt.completeRegistration(aStudent, anOffering);
 	}
 
-	private void setCurrentStudents() {
-		var student1 = new Student("Nestor Chacin", 12388999);
-		currentStudents.add(student1);
-		var student2 = new Student("Nasih Nazeem", 32199888);
-		currentStudents.add(student2);
+	private void attemptEnrol (Student aStudent, CourseOffering anOffering) {
+		var enrolAttempt = new Registration();
+		enrolAttempt.completeRegistration(aStudent, anOffering);
+		aStudent.addToSchedule(enrolAttempt);
+		anOffering.addToStudentEnrollment(enrolAttempt);
 	}
 
+	private void setCurrentStudents() {
+		var student1 = new Student("Nestor Chacin", 1);
+		currentStudents.add(student1);
+		var student2 = new Student("Nasih Nazeem", 2);
+		currentStudents.add(student2);
+		var student3 = new Student("Timmy", 1001);
+		currentStudents.add(student3);
+		var student4 = new Student("Lizzy", 1010);
+		currentStudents.add(student4);
+		var student5 = new Student("Daenerys", 1011);
+		currentStudents.add(student5);
+		var student6 = new Student("Bob", 100);
+		currentStudents.add(student6);
+		var student7 = new Student("Steve", 101);
+		currentStudents.add(student7);
+		var student8 = new Student("Rambo", 110);
+		currentStudents.add(student8);
+		var student9 = new Student("Mo", 111);
+		currentStudents.add(student9);
+		var student10 = new Student("Jim", 0);
+		currentStudents.add(student10);
+	}
 
 
 	private void addPreReq (String targetCourseName, int targetCourseNum, String preReqName, int preReqNum) {
