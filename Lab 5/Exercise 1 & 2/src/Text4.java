@@ -1,5 +1,5 @@
 
-class Text
+class Text implements Cloneable
 {
 	
 	private final Double DEFAULT_SIZE = 10.0;
@@ -30,6 +30,13 @@ class Text
 	public String getText(){
 		return text ;
 	}
+
+	public Text clone() throws CloneNotSupportedException
+	{
+		Text cloned = (Text) super.clone();
+
+		return cloned;
+	}	
 	
 	@Override
 	public String toString(){

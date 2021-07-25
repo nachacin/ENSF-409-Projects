@@ -29,6 +29,17 @@ class Circle extends Shape
 	public Double  volume(){
 		return 0.0;
 	}
+
+	public Circle clone() throws CloneNotSupportedException
+	{
+		Circle cloned = (Circle) super.clone();
+
+		cloned.name = (Text) name.clone();
+
+		cloned.origin = (Point) origin.clone();
+
+		return cloned;
+	}
 	
 	
 	public String toString(){

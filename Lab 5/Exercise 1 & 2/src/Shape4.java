@@ -1,5 +1,4 @@
-
-abstract class Shape
+abstract class Shape implements Cloneable
 {
 	protected Point origin;
 	protected Text name;
@@ -35,7 +34,7 @@ abstract class Shape
 		origin.setx(origin.getx()+dx);
 		origin.sety(origin.gety()+dy);
 	}
-	
+
 	@Override
 	public String toString(){
 		String s = "\nShape name: " + name + "\nOrigin: " + origin;

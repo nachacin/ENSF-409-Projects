@@ -29,6 +29,18 @@ class Rectangle extends Shape
 	protected Double  volume(){
 		return 0.0;
 	}
+
+
+	public Rectangle clone() throws CloneNotSupportedException
+	{
+		Rectangle cloned = (Rectangle) super.clone();
+
+		cloned.name = (Text) name.clone();
+
+		cloned.origin = (Point) origin.clone();
+
+		return cloned;
+	}
 	
 	@Override
 	public String toString(){

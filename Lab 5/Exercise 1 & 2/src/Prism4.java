@@ -33,6 +33,13 @@ class Prism extends Rectangle {
 	{
 		return  width  * length * height;
 	}
+
+	public Prism clone() throws CloneNotSupportedException
+	{
+		Prism cloned = (Prism) super.clone();
+
+		return cloned;
+	}
 	
 	
 	public String toString()

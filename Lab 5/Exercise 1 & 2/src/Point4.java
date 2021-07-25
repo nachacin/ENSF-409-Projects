@@ -1,6 +1,6 @@
 
 
-class Point 
+class Point implements Cloneable
 {
 	private Colour colour;
 	private Double xCoordinate, yCoordinate;
@@ -42,11 +42,18 @@ class Point
 		
 		return (Math.sqrt(Math.pow(dist_x, 2) + Math.pow(dist_y, 2)));
 	}
-	
+
+	public Point clone() throws CloneNotSupportedException
+	{
+		Point cloned = (Point) super.clone();
+
+		return cloned;
+	}	
 	static Double  distance (Point  that, Point  other){
 		Double dist_x = other.xCoordinate - that.xCoordinate;
 		Double dist_y = other.yCoordinate - that.yCoordinate;
 		
 		return (Math.sqrt(Math.pow(dist_x, 2) + Math.pow(dist_y, 2)));
 	}
+	
 }
