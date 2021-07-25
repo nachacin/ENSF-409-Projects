@@ -35,11 +35,10 @@ public class Geometry{
          demo.add(c2);
          demo.add(p1);
          demo.add(p2);
-         System.out.println(list);
 
             
-        //  System.out.println("\nShowing information about objects added to the list:");
-        //  demo.showAll();
+         System.out.println("\nShowing information about objects added to the list:");
+         demo.showAll();
          
         //  System.out.println("\nShowing area, perimeter, and volume of objects in the list:");
          
@@ -52,6 +51,11 @@ public class Geometry{
 
     public void add(Shape o){
         list.add(o);
+    }
+
+    public void showAll(){
+        for(Shape e : list)
+            System.out.println(e);
     }
     
 
