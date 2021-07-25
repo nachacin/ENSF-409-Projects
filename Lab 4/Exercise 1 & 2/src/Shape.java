@@ -1,5 +1,5 @@
 
-abstract class Shape {
+abstract class Shape implements Comparable<Shape>{
 	protected Point origin;
 	protected Text name;
 	abstract protected Double area();
@@ -36,6 +36,7 @@ abstract class Shape {
 		origin.sety(origin.gety()+dy);
 	}
 	
+
 	@Override
 	public String toString(){
 		String s = "\nShape name: " + name + "\nOrigin: " + origin;

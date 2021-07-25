@@ -34,5 +34,12 @@ public class Rectangle extends Shape {
 		String s = super.toString()+ "\nWidth: " + width + "\nLength: " + length;
 		return s;
 	}
+
+	@Override
+	public int compareTo(Shape o) {
+		// TODO Auto-generated method stub
+		return this.name.getText().compareTo(o.name.getText());
+
+	}
 	
 }

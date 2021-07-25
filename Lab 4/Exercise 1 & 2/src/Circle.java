@@ -33,4 +33,11 @@ class Circle extends Shape{
 		String s = super.toString()+ "\nRadius: " + radius;
 		return s;
 	}
+
+
+	@Override
+	public int compareTo(Shape o) {
+		// TODO Auto-generated method stub
+		return this.name.getText().compareTo(o.name.getText());
+	}
 }
