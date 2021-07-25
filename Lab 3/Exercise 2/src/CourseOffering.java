@@ -1,20 +1,34 @@
 import java.util.ArrayList;
 
 // CourseOffering = section of a particular course
-
+/**
+ * @author Nasih Nazeem
+ */
 public class CourseOffering {
 	
+	// Section Number of the Course
 	private int secNum;
+	// Section Capacity of the Course
 	private int secCap;
+	// Course which is receiving a course offering (a course section)
 	private Course theCourse;
+	// Current students enlisted in the course offering.
 	private ArrayList<Student> currentEnrolment;
+	// Current and past students that possess a registration of this course offering. Past 
+	// students who have completed the course would have a registration containing a Student object, a Course Section object, and a grade.
+	// Currently enrolled students are similar, but lack a grade.
 	private ArrayList<Registration> offeringRegRecord; // all students ever enrolled + currently enrolled students
-
+	// Checks to see whether there are enough students enrolled to continue to hold onto a section.
+	private boolean minEnrolmentMet;
+	
 	public CourseOffering (int secNum, int secCap) {
 		this.setSecNum(secNum);
 		this.setSecCap(secCap);
+		this.minEnrolmentMet = false;
+
 		offeringRegRecord = new ArrayList <Registration>();
 		currentEnrolment = new ArrayList<Student>();
+		
 	}
 
 	public int getSecNum() {
@@ -78,11 +92,8 @@ public class CourseOffering {
 			if (rr.equals(registration))
 				removeRegistration = rr;
 		}
-
-		//System.out.println(offeringRegRecord);
 		currentEnrolment.remove(removeStudent);
 		offeringRegRecord.remove(removeRegistration);
-		//System.out.println(offeringRegRecord);
 	}
 
 	

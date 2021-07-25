@@ -2,21 +2,24 @@ import java.util.Scanner;
 
 
 public class Menu {
+    // Exit is a boolean used to exit the program.
     private static boolean exit;
+    // Declares the catalogue of courses in the database.
     private static CourseCatalogue catalogue;
+    // Kb is used to take in user input Strings.
     private static Scanner kb;
+    // Stores the student name of the user.
     private static String studentname;
+    //Stores the student ID of the user.
     private static int studentid;
+    //Declared to gain access of the Student class using searchDBStudent.
     private static DBManager dbmanager;
+    // Initalized privately to register and remove registrations of a student in a course (In cases 2 and 3).
     private static Registration regStudent = new Registration();
 
     public static void setDBManager(DBManager dbManager){
         dbmanager = dbManager;
     }
-
-    // public static void setCourseOffering(CourseOffering theOffering){
-    //     courseoffering = theOffering;
-    // }
 
     public static void runMenu(CourseCatalogue aCatalogue) {
         printHeader();
@@ -135,10 +138,6 @@ public class Menu {
                 int sec = Integer.parseInt(kb.nextLine());
                 System.out.println(catalogue.searchCat(name,num).getCourseOfferingAt(sec - 1));
                 break;
-
-
-
-                
 
             default:
                 break;

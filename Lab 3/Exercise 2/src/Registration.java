@@ -32,11 +32,6 @@ public class Registration {
 		theStudent.addToRecords(this);
 		theOffering.recordRegistration(this);
 	}
-
-	// private void subtractRegistration() {
-	// 	theStudent.removeFromRecords(this);
-	// 	theOffering.sabotageRegistration(this);
-	// }
 	
 	public Student getTheStudent() {
 		return this.theStudent;
