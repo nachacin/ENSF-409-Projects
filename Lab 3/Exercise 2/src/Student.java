@@ -7,8 +7,7 @@ public class Student {
 	private int studentId;
 	private ArrayList<CourseOffering> schedule; // Current
 	private ArrayList<Registration> studentRegList; // Past + Current
-	private CourseOffering removeCoffering;
-	private Registration removeReg;
+	
 	
 	public Student (String studentName, int studentId) {
 		this.setStudentName(studentName);
@@ -52,6 +51,8 @@ public class Student {
 	}
 
 	public void getStuOffering(Course course, Registration registration) {
+		CourseOffering removeCoffering = null;
+		Registration removeReg = null;
 		
 		for(CourseOffering ce : schedule)
 		{

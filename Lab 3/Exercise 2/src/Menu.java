@@ -9,6 +9,7 @@ public class Menu {
     private static int studentid;
     private static DBManager dbmanager;
     private static CourseOffering courseoffering;
+    private static Registration regStudent = new Registration();
 
     public static void setDBManager(DBManager dbManager){
         dbmanager = dbManager;
@@ -91,7 +92,6 @@ public class Menu {
                 name = kb.nextLine();
                 System.out.println("What is the number of the course you wish to enroll into?");
                 num = Integer.parseInt(kb.nextLine());
-                Registration regStudent = new Registration();
                 regStudent.completeRegistration(dbmanager.searchDBstudent(studentname,studentid), catalogue.searchCat(name,num).getCourseOfferingAt(0));
                 //System.out.println(regStudent);
                 dbmanager.searchDBstudent(studentname, studentid).addToSchedule(regStudent);
@@ -104,7 +104,7 @@ public class Menu {
                 name = kb.nextLine();
                 System.out.println("What is the number of the course you wish to drop?");
                 num = Integer.parseInt(kb.nextLine());
-                dbmanager.searchDBstudent(studentname, studentid).getStuOffering(catalogue.searchCat(name, num));
+                dbmanager.searchDBstudent(studentname, studentid).getStuOffering(catalogue.searchCat(name, num), regStudent);
                 courseoffering.removeReg(dbmanager.searchDBstudent(studentname, studentid));
                 break;
 
