@@ -4,7 +4,6 @@ import java.util.TreeSet;
 
 public class Geometry{
 	private TreeSet <Shape> shapes = new TreeSet<>();
-    private static TreeSet<Shape> list = new TreeSet<>();
 	
 	
 	public static void main(String[] args) {
@@ -40,24 +39,30 @@ public class Geometry{
          System.out.println("\nShowing information about objects added to the list:");
          demo.showAll();
          
-        //  System.out.println("\nShowing area, perimeter, and volume of objects in the list:");
+         System.out.println("\nShowing area, perimeter, and volume of objects in the list:");
          
-        //  Iterator <Shape> it = demo.shapes.iterator();
-        //  while(it.hasNext()){
-        // 	demo.calculator(it.next());
-        // }
+         Iterator <Shape> it = demo.shapes.iterator();
+         while(it.hasNext()){
+        	demo.calculator(it.next());
+        }
 
 	}
 
     public void add(Shape o){
-        list.add(o);
+        shapes.add(o);
     }
 
     public void showAll(){
-        for(Shape e : list)
+        for(Shape e : shapes)
             System.out.println(e);
     }
     
+    public void calculator(Shape o){
+        System.out.print("The area, perimeter, and volume of " + o.getName()+ " are: ");
+        System.out.format("%.2f, %.2f, %.2f", o.area(), o.perimeter(), o.volume());
+        System.out.println();
+
+    }
 
 
 
