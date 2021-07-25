@@ -84,6 +84,7 @@ public class DBManager {
 
 	private void batchOfferingCreation () {
 		catalogue.createCourseOffering(searchDBcourse("MATH", 275), 1, 60);
+		catalogue.createCourseOffering(searchDBcourse("MATH", 275), 2, 60);
 		catalogue.createCourseOffering(searchDBcourse("MATH", 277), 1, 80);
 		catalogue.createCourseOffering(searchDBcourse("MATH", 211), 1, 45);
 		catalogue.createCourseOffering(searchDBcourse("ENEL", 101), 1, 150);
