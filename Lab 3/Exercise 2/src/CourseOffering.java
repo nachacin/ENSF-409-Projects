@@ -15,7 +15,7 @@ public class CourseOffering {
 	// students who have completed the course would have a registration containing a Student object, a Course Section object, and a grade.
 	// Currently enrolled students are similar, but lack a grade.
 	private ArrayList<Registration> offeringRegRecord; // all students ever enrolled + currently enrolled students
-	// Checks to see whether there are enough students enrolled to continue to hold onto a section.
+	// An instance state field denoting if a course offering (section) has sufficient enrolment to guarantee its eventual delivery. 
 	private boolean minEnrolmentMet;
 	
 	public CourseOffering (int secNum, int secCap) {
