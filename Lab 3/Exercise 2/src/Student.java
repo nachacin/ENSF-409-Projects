@@ -11,6 +11,17 @@ public class Student {
 		this.setStudentName(studentName);
 		this.setStudentId(studentId);
 		studentRegList = new ArrayList<Registration>();
+		schedule = new ArrayList<CourseOffering>();
+	}
+
+	public void addToSchedule(Registration rStu){
+		
+		schedule.add(rStu.getTheOffering());
+
+	}
+	public void removeStuReg(Registration stuReg){
+
+
 	}
 
 	public String getStudentName() {
@@ -31,13 +42,21 @@ public class Student {
 	@Override
 	public String toString () {
 		String st = "Student Name: " + getStudentName() + "\n" +
-				"Student Id: " + getStudentId() + "\n\n";
+			"Student Id: " + getStudentId() + "\n\n";
 		return st;
 	}
 
 	public void addToRecords(Registration registration) {
 		// TODO Auto-generated method stub
 		studentRegList.add(registration);
+	}
+
+	public void getStuOffering(Course course) {
+		for(CourseOffering ce : schedule){
+			if()
+				schedule.remove(ce);
+		}
+
 	}
 
 }
