@@ -76,12 +76,8 @@ public class Student {
 			if(rr.equals(registration))
 				removeReg = rr;
 		}
-
-		//System.out.println(schedule);
 		schedule.remove(removeCoffering);
 		studentRegList.remove(removeReg);
-		//System.out.println(schedule);
-		System.out.println(studentRegList);
 
 	}
 

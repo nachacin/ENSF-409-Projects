@@ -2,9 +2,13 @@ import java.util.ArrayList;
 
 public class Course {
 
+	// Declared as a string to hold Course name input.
 	private String courseName;
+	// Declared as an integer to hold Course number input.
 	private int courseNum;
+	// ArrayList of prerequisites for a course.
 	private ArrayList<Course> preReqs;
+	// ArrayList of sections for a course.
 	private ArrayList<CourseOffering> sections;
 
 	public Course(String courseName, int courseNum) {
