@@ -1,9 +1,11 @@
 
 import java.io.*;
 
+
+
 public class Sums {
 
-    public static void sum(BufferedReader in) throws NumberFormatException, IOException{ 
+    public static void sum(BufferedReader in) throws IOException { 
         // takes a sequence of integers as inputs, and outputs their sum
 
 	int s, nextInt;
@@ -12,28 +14,37 @@ public class Sums {
 
 	System.out.println("Please input the sequence of integers to sum, terminated by a 0");
         try {
+			
 			nextInt = Integer.parseInt(in.readLine());
-		} catch (NumberFormatException e) {
+		} catch(NumberFormatException e){
 			// TODO Auto-generated catch block
-			System.out.println("Please enter a number");
 			//e.printStackTrace();
-		} catch (IOException e) {
+			System.out.println("This was not a valid integer.");
+			s = s - nextInt;
+			//throw e;
+		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
+			
 		}
                 //Read next datum in input. An integer is expected
 
 	while (nextInt!=0) {
 	    s = s + nextInt;
 	    try {
+			
 			nextInt = Integer.parseInt(in.readLine());
-		} catch (NumberFormatException e) {
+		} catch(NumberFormatException e){
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("This was not a valid integer.");
+			s = s - nextInt;
+			//throw e;
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Please enter a number");
 			//e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
