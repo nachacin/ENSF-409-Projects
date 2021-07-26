@@ -96,7 +96,6 @@ public class Menu {
 
             case 1:
                 InventoryManager.printAllTools();
-                Menu.runMenu();
                 break;
 
             case 2:
@@ -108,7 +107,6 @@ public class Menu {
                 } else {
                     System.out.println("Could not find a tool with that name!");
                 }
-                Menu.runMenu();
                 break;
 
             case 3:
@@ -120,7 +118,6 @@ public class Menu {
                 } else {
                     System.out.println("Could not find a tool with that ID!");
                 }
-                Menu.runMenu();
                 break;
 
             case 4: 
@@ -132,12 +129,10 @@ public class Menu {
                 } else {
                     System.out.println("Could not find a tool with that name!");
                 }
-                Menu.runMenu();
                 break;
                 
             case 5:
                 InventoryManager.itemSale();
-                Menu.runMenu();
                 break;
                 
             default:
