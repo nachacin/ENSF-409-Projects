@@ -39,7 +39,7 @@ class Text implements Cloneable
 	}	
 	
 	@Override
-	public String toString(){
+	public String toString() {
 		return (text);
 	}
 
