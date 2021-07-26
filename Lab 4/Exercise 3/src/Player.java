@@ -1,23 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Player {
-    private String name;
-    private Board board;
-    private Player opponent;
-    private char mark;
-    private Referee theReferee;
-    private Scanner inputScanner;
 
-    public Player(String aName, char aMark, Scanner aScanner) {
+public abstract class Player {
+    protected String name;
+    protected Board board;
+    protected Player opponent;
+    protected final char mark;
+    protected Referee theReferee;
+    protected BufferedReader br;
+
+    public Player(String aName, char aMark, Board theBoard, BufferedReader aBR) {
         this.name = aName;
         this.mark = aMark;
-        this.board = null;
+        this.board = theBoard;
         this.opponent = null;
-        this.inputScanner = aScanner;
+        this.br = aBR;
     }
 
-    public void play() {
+    protected void play() {
         if((board.xWins() == false) && 
            (board.oWins() == false) &&
            (board.isFull() == false)) {
@@ -31,31 +33,47 @@ public class Player {
         else opponent.play();
     }
 
-    public void makeMove() {
+    protected void makeMove() {
         boolean moveMade = false;
         var move = new ArrayList<Integer>(2);  // {row number, column number}
         move.add(0, null);
         move.add(1, null);
         while (moveMade == false) {
             System.out.print("\n" + this.name + ", please enter a row number: ");
-            move.set(0, this.inputScanner.nextInt());
+            try {
+                move.set(0, Integer.parseInt(this.br.readLine()));
+            } catch (NumberFormatException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             System.out.print("\n" + this.name + ", please enter a column number: ");
-            move.set(1, this.inputScanner.nextInt());
+            try {
+                move.set(1, Integer.parseInt(this.br.readLine()));
+            } catch (NumberFormatException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             moveMade = theReferee.validateMove(move, this.name);
         }
 
         board.addMark(move.get(0), move.get(1), this.mark);
     }
 
-    public void setOpponent(Player theOpponent) {
+    protected void setOpponent(Player theOpponent) {
         this.opponent = theOpponent;
     }
 
-    public void setRef(Referee aReferee) {
+    protected void setRef(Referee aReferee) {
         theReferee = aReferee;
     }
 
-    public void setBoard(Board theBoard) {
+    protected void setBoard(Board theBoard) {
         this.board = theBoard;
     }
 }
