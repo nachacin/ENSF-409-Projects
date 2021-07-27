@@ -22,6 +22,24 @@ public class Referee {
         this.board.display();
         this.xPlayer.play();
     }
+    /**
+     * Coordinates turns for {@code Player} instances.
+     * <p>
+     * Effectively ends a game if {@code Board} method calls
+     * determine there is a winner or a tie.
+     * @param nextPlayer the {@code Player} that will have the next turn
+     */
+    public void turnTransition(Player nextPlayer) {
+        if (board.xWins()) {
+            System.out.println(xPlayer.getName() + " wins!");
+        } else if (board.oWins()) {
+            System.out.println(oPlayer.getName() + " wins!");
+        } else if (board.isFull()) {
+            System.out.println("It's a tie!");
+        } else { 
+            nextPlayer.play();
+        }
+    }
 
     public boolean validateMove(ArrayList<Integer> moveAttempt, String movingPlayer) {
         if (moves.add(moveAttempt)) {
