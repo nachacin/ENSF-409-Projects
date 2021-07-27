@@ -73,7 +73,7 @@ public class Game implements Constants {
 		final int NUMBER_OF_TYPES = 4;
 		System.out.print ( "\nWhat type of player is " + aName + "?\n");
 		System.out.print("  1: Human\n" + "  2: Random Player\n"
-		+ "  3: Blocking Player\n" + "  4: Smart Player\n");
+		+ "  3: Blocking Player\n");
 		System.out.print( "Please enter a number in the range 1-" + NUMBER_OF_TYPES + ": ");
 		int playerTypeSelect = 0;
 
@@ -96,9 +96,9 @@ public class Game implements Constants {
 			case 2:
 				newPlayer = new RandomPlayer(aName, aMark, theBoard, aBR);
 				break;
-			// case 3:
-			// 	newPlayer = new BlockingPlayer(aName, aMark);
-			// 	break;
+			case 3:
+				newPlayer = new BlockingPlayer(aName, aMark, theBoard, aBR);
+				break;
 			// case 4:
 			// 	newPlayer = new SmartPlayer(aName, aMark);
 			// 	break;

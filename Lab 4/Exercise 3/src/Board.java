@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Prints TicTacToe board to the Command Line. Updates
  * the state of a board through method calls. Stores
@@ -11,12 +13,16 @@
 public class Board implements Constants {
 	private char theBoard[][];
 	private int markCount;
+	private ArrayList<ArrayList<Integer>> oMoves;
+	private ArrayList<ArrayList<Integer>> xMoves;
 	/**
 	 * Creates a board object, initilialzing its {@code theBoard}
 	 * field to {@code char[3][3]} filled with {@code ' '} chars.
 	 * Also sets {@code markCount} field to zero.
 	 */
 	public Board() {
+		this.oMoves = new ArrayList<ArrayList<Integer>>();
+		this.xMoves = new ArrayList<ArrayList<Integer>>();
 		markCount = 0;
 		theBoard = new char[3][];
 		for (int i = 0; i < 3; i++) {
@@ -99,9 +105,49 @@ public class Board implements Constants {
 	 * @param newMark a character passed to be placed on {@code theBoard}
 	 */
 	public void addMark(int row, int col, char newMark) {
-		
+		if (newMark == LETTER_O) {
+			var move = new ArrayList<Integer>(2);
+			move.add(0, row);
+			move.add(1, col);
+			oMoves.add(move);
+		}
+		if (newMark == LETTER_X) {
+			var move = new ArrayList<Integer>(2);
+			move.add(0, row);
+			move.add(1, col);
+			xMoves.add(move);
+		}
 		theBoard[row][col] = newMark;
 		markCount++;
+	}
+	public ArrayList<ArrayList<Integer>> getMadeMoves() {
+		var madeMoves = this.oMoves;
+		madeMoves.addAll(xMoves);
+		return madeMoves;
+	}
+	public ArrayList<ArrayList<Integer>> getOpponentMoves(char playerMark) {
+		if (playerMark == LETTER_O) {
+			return this.xMoves;
+		} else if (playerMark == LETTER_X) {
+			return this.oMoves;
+		} else {
+			return null;
+		}
+	}
+	public ArrayList<ArrayList<Integer>> getMovesAvail() {
+		var movesAvail = new ArrayList<ArrayList<Integer>>();
+		
+		for (Integer i = 0; i < 3; i++) {
+			for (Integer j = 0; j < 3; j++) {
+				if (this.theBoard[i][j] == SPACE_CHAR) {
+					var move = new ArrayList<Integer>(2);
+					move.add(0, i);
+					move.add(1, j);
+					movesAvail.add(move);
+				}
+			}
+		}
+		return movesAvail;
 	}
 	/**
 	 * Reverts state of {@code theBoard} to initial conditions
@@ -201,4 +247,5 @@ public class Board implements Constants {
 			System.out.print("|     ");
 		System.out.println("|");
 	}
+
 }
