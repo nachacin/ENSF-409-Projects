@@ -1,15 +1,8 @@
 **********************************************************************
-*                         Orders - 2021-07-25                        *
+*                         Orders - 2021-07-28                        *
 **********************************************************************
-ORDER ID:                 64506                                                  
-Date Ordered:             2021-07-25                                             
-
-Item Description:         Widgets                                                
-Amount Ordered:           45                                                     
-Supplier:                 Winork Manufacturing Inc.                              
-**********************************************************************
-ORDER ID:                 96943                                                  
-Date Ordered:             2021-07-25                                             
+ORDER ID:                 11201                                                  
+Date Ordered:             2021-07-28                                             
 
 Item Description:         Knock Bits                                             
 Amount Ordered:           22                                                     
