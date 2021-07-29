@@ -1,20 +1,16 @@
 
-class Node
-{
+class Node<T> {
 	Integer keyM;
-	Double itemM;
-	Node nextM;
+	T itemM;
+	Node<T> nextM;
 	
-	public Node()
-	{
+	public Node() {
 		keyM = null;
 		itemM=  null; 
 		nextM  = null;
 	
 	}
-	public Node(Double itemA, Integer keyA, Node  nextA)
-	
-	{
+	public Node(T itemA, Integer keyA, Node<T> nextA) {
 		itemM= itemA ;
 		keyM = keyA;
 		nextM = nextA;

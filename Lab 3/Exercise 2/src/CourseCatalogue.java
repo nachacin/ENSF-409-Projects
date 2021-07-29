@@ -72,6 +72,14 @@ public class CourseCatalogue {
 		return subjectCourses;
 	}
 
+	public ArrayList<CourseOffering> getCourseSections(Course course) {
+		var courseSections = new ArrayList<CourseOffering>();
+		for (CourseOffering section: course.getSections()) {
+			courseSections.add(section);
+		}
+		return courseSections;
+	}
+
 
 	public void setCourseList(ArrayList <Course> courseList) {
 		this.courseList = courseList;
