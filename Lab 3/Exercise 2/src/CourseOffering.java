@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class CourseOffering {
+public class CourseOffering implements Comparable<CourseOffering> {
 	
 	// Section Number of the Course
 	private int secNum;
@@ -40,6 +40,14 @@ public class CourseOffering {
 		return secCap;
 	}
 
+	public int getSectionEnrolment() {
+		return this.currentEnrolment.size();
+	}
+
+	public ArrayList<Student> getClassList() {
+		return this.currentEnrolment;
+	}
+
 	public void setSecCap(int secCap) {
 		this.secCap = secCap;
 	}
@@ -51,25 +59,28 @@ public class CourseOffering {
 	public void setTheCourse(Course theCourse) {
 		this.theCourse = theCourse;
 	}
-	
+	public String getStatus() {
+		String status;
+		if(getOfferingStatus() == true) {
+			status = "Confirmed";
+		} else {
+			status = "Tentative";
+		}
+		return status;
+	}
 	@Override
 	public String toString () {
-		String st = "\n";
-		String status;
-
-		if(getOfferingStatus() == true) {
-			status = "Confirmed.";
-		} else {
-			status = "Tentative.";
-		}
-
-		st += getTheCourse().getCourseName() + " " + getTheCourse().getCourseNum() + "\n";
-		st += "Section Num: " + getSecNum() + ", section cap: "+ getSecCap() + ", Status: " + status + "\n";
-		//We also want to print the names of all students in the section
-		st += "Students in this course:\n" + this.currentEnrolment;
-		
-
+		String st = String.format(" %-4s  %-3s - Section: %-2s | Capacity: %-3s | Enrolment: %-3s | Status: %-12s\n", 
+								  this.getTheCourse().getCourseName(),
+								  this.getTheCourse().getCourseNum(),
+								  this.secNum,
+								  this.secCap,
+								  this.getSectionEnrolment(),
+								  this.getStatus());
 		return st;
+	}
+	public int compareTo(CourseOffering other) {
+		return this.secNum - other.getSecNum();
 	}
 
 	public void recordRegistration(Registration anEntry) {
@@ -84,7 +95,7 @@ public class CourseOffering {
 		if(currentEnrolment.size() >= 8){
 			this.minEnrolmentMet = true;
 		} else {
-			System.out.println("This course's enrolment is still too low to create a section. As of now, these registrations are tentative.");
+			System.out.println("This course's enrolment is still too low to create a section. As of now, these registrations are tentative.\n");
 		}
 	}
 	

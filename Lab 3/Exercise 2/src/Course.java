@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Course {
+public class Course implements Comparable<Course> {
 
 	// Declared as a string to hold Course name input.
 	private String courseName;
@@ -32,6 +32,10 @@ public class Course {
 		}
 	}
 
+	public ArrayList<CourseOffering> getSections() {
+		return this.sections;
+	}
+
 	public String getCourseName() {
 		return courseName;
 	}
@@ -52,15 +56,18 @@ public class Course {
 		this.preReqs.add(preReq);
 	}
 
+	public int compareTo(Course other) {
+		if (this.courseName.compareTo(other.getCourseName()) == 0) {
+			return this.courseNum - other.getCourseNum();
+		} else {
+			return this.courseName.compareTo(other.getCourseName());
+		}
+	}
+
 	
 	@Override
 	public String toString () {
-		String st = "\n";
-		st += getCourseName() + " " + getCourseNum ();
-		st += "\nAll course sections:\n";
-		for (CourseOffering c : sections)
-			st += c;
-		st += "\n-------\n";
+		String st = getCourseName() + " " + getCourseNum() + " - Available Sections: " + sections.size() + "\n";
 		return st;
 	}
 

@@ -30,6 +30,10 @@ public class DBManager {
 		return courseList;
 	}
 
+	public ArrayList<Student> getStudents() {
+		return currentStudents;
+	}
+
 	private void retrieveCourses() {
 		courseList.add(new Course ("CHEM", 209));
 		courseList.add(new Course ("ENGG", 233));
@@ -69,7 +73,7 @@ public class DBManager {
 		courseList.add(new Course ("ENEL", 567));
 		courseList.add(new Course ("CPSC", 457));
 		courseList.add(new Course ("ENEL", 573));
-		courseList.add(new Course ("ENEL", 501));
+		courseList.add(new Course ("ENCM", 501));
 	}
 
 	
@@ -85,21 +89,46 @@ public class DBManager {
 	}
 
 	private void batchOfferingCreation () {
+		catalogue.createCourseOffering(searchDBcourse("CHEM", 209), 1, 120);
+		catalogue.createCourseOffering(searchDBcourse("ENGG", 233), 1, 115);
 		catalogue.createCourseOffering(searchDBcourse("MATH", 275), 1, 60);
 		catalogue.createCourseOffering(searchDBcourse("MATH", 275), 2, 60);
-		catalogue.createCourseOffering(searchDBcourse("MATH", 277), 1, 80);
 		catalogue.createCourseOffering(searchDBcourse("MATH", 211), 1, 45);
-		catalogue.createCourseOffering(searchDBcourse("ENEL", 101), 1, 150);
-		catalogue.createCourseOffering(searchDBcourse("ENSF", 409), 1, 35);
 		catalogue.createCourseOffering(searchDBcourse("ENGG", 225), 1, 200);
-		catalogue.createCourseOffering(searchDBcourse("ENGG", 233), 1, 115);
-		catalogue.createCourseOffering(searchDBcourse("ENSF", 337), 1, 80);
-		catalogue.createCourseOffering(searchDBcourse("MATH", 177), 1, 3); // LOW CAP FOR TESTING PURPOSES
-		catalogue.createCourseOffering(searchDBcourse("PHYS", 259), 1, 180);
-		catalogue.createCourseOffering(searchDBcourse("ENGG", 202), 1, 75);
 		catalogue.createCourseOffering(searchDBcourse("ENGG", 201), 1, 110);
+		catalogue.createCourseOffering(searchDBcourse("ENGG", 202), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("MATH", 277), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("PHYS", 259), 1, 180);
+		catalogue.createCourseOffering(searchDBcourse("ENGG", 200), 1, 180);
+		catalogue.createCourseOffering(searchDBcourse("MATH", 177), 1, 8); // LOW CAP FOR TESTING PURPOSES
+		catalogue.createCourseOffering(searchDBcourse("PHYS", 365), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("MATH", 375), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("ENCM", 335), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("ENSF", 337), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 353), 1, 120);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 101), 1, 150);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 361), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 343), 1, 80);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 327), 1, 80);
 		catalogue.createCourseOffering(searchDBcourse("ENEL", 300), 1, 75);
-		catalogue.createCourseOffering(searchDBcourse("CHEM", 209), 1, 120);
+		catalogue.createCourseOffering(searchDBcourse("ENCM", 369), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 475), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 469), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 487), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENCM", 467), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 453), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 419), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENCM", 511), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 102), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 441), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 400), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 471), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENSF", 409), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("CPSC", 319), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 567), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("CPSC", 457), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENEL", 573), 1, 75);
+		catalogue.createCourseOffering(searchDBcourse("ENCM", 501), 1, 75);
 	}
 
 	

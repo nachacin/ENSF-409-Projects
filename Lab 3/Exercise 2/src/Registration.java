@@ -54,11 +54,11 @@ public class Registration {
 	
 	@Override
 	public String toString () {
-		String st = "\n";
-		st += getTheStudent() + "\n";
-		st += "The Offering: " + getTheOffering () + "\n";
-		st += "Grade: " + getGrade();
-		st += "\n-----------\n";
+		String st = String.format(" %-7s | %-6s | %-7s | %-9s\n",
+								this.getTheOffering().getTheCourse().getCourseName(),
+								this.getTheOffering().getTheCourse().getCourseNum(),
+								this.getTheOffering().getSecNum(),
+								this.getGrade());
 		return st;
 		
 	}

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Student {
+public class Student implements Comparable<Student> {
 	
 	private String studentName;
 	private int studentId;
@@ -25,11 +25,27 @@ public class Student {
 
 	}
 
+	public ArrayList<CourseOffering> getSchedule() {
+		return this.schedule;
+	}
+
+	public Registration getStudentRegistration(CourseOffering section) {
+		// TODO Check for past grades
+		for (Registration r: studentRegList) {
+			if (r.getTheOffering() == section) {
+				return r;
+			} else {
+				continue;
+			}
+		}
+		return null;
+	}
+
 	public int getScheduleSize() {
 		return this.schedule.size();
 	}
 
-	public void getSchedule() {
+	public void printSchedule() {
 		//System.out.println(schedule);
 		String status;
 		for(CourseOffering e : this.schedule) {
@@ -60,9 +76,19 @@ public class Student {
 	}
 	@Override
 	public String toString () {
-		String st = "Student Name: " + getStudentName() + "\n" +
-			"Student Id: " + getStudentId() + "\n\n";
+		String st = String.format("%-20s ID: %s", this.getStudentName(), this.getStudentId());
 		return st;
+	}
+	public int compareTo(Student other) {
+		if (this.studentName.compareTo(other.getStudentName()) == 0) {
+			return this.studentId - other.getStudentId();
+		} else {
+			return this.studentName.compareTo(other.getStudentName());
+		}
+	}
+
+	public ArrayList<Registration> getStudentRecords() {
+		return this.studentRegList;
 	}
 
 	public void addToRecords(Registration registration) {
@@ -71,24 +97,13 @@ public class Student {
 		
 	}
 
-	public void getStuOffering(Course course, Registration registration) {
-		CourseOffering removeCoffering = null;
-		Registration removeReg = null;
-		
-		for(CourseOffering ce : schedule)
-		{
-			if((ce.getTheCourse()).equals(course))
-				removeCoffering = ce;
+	public void unenroll(CourseOffering offeringToDel) {
+		var registrationToDel = this.getStudentRegistration(offeringToDel);
+		if (registrationToDel == null) {
+			System.out.println("Error: Something wrong happened with unenroll");
+		} else { 
+			schedule.remove(offeringToDel);
+			studentRegList.remove(registrationToDel);
 		}
-
-		for(Registration rr : studentRegList)
-		{
-			if(rr.equals(registration))
-				removeReg = rr;
-		}
-		schedule.remove(removeCoffering);
-		studentRegList.remove(removeReg);
-
 	}
-
 }
