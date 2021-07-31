@@ -1,9 +1,16 @@
 package src;
 public class Shape implements GraphicCreator{
 
+    private int shapeType;
+
+    Shape(int type) {
+        this.shapeType = type;
+    }
+
     @Override
-    public void drawShape(Shape s, int anInteger) {
-        // TODO Auto-generated method stub
+    public Shape drawShape(Shape s) {
+
+        return s;
         
     }
     

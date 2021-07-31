@@ -2,6 +2,6 @@ package src;
 
 public interface GraphicCreator {
 
-    public void drawShape(Shape s, int anInteger);
+    public Shape drawShape(Shape s);
     
 }

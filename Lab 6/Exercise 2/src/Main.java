@@ -1,8 +1,12 @@
 package src;
 
+
 public class Main {
     public static void main(String[] args) {
-        Shape c = new Shape();
-        c.drawShape().drawCircle(c);
+        Circle c = new Circle();
+        Square s = new Square();
+        ((Circle) c.drawShape(c)).drawCircle(c);
+        ((Square) s.drawShape(s)).drawSquare(s);
+        
     }
 }

@@ -2,17 +2,17 @@ package src;
 public class Square extends Shape {
 
     Square() {
-        super();
+        super(2);
         //TODO Auto-generated constructor stub
     }
 
-    public Square drawShape(Shape s) {
+    public Shape drawShape(Shape s) {
 
-        return (Square) s;
+        return s;
     }
 
     public void drawSquare(Square square) {
-        System.out.println(square);
+        System.out.println("square");
     }
 
     
