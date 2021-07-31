@@ -1,17 +1,11 @@
 package src;
-abstract public class Shape {
+public class Shape implements GraphicCreator{
 
-
-    private int shapeType;
-
-
-    Shape(int type) {
-        this.shapeType = type;
+    @Override
+    public void drawShape(Shape s, int anInteger) {
+        // TODO Auto-generated method stub
+        
     }
-
-    
-    abstract public int getShapeType();
-
     
     
 }

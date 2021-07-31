@@ -2,22 +2,19 @@ package src;
 
 public class Circle extends Shape {
 
-    private static int shapeType = 1;
-
     Circle() {
-        super(shapeType);
+        super();
+        //TODO Auto-generated constructor stub
+    }
+
+    public Circle drawShape(Shape s) {
+
+        return (Circle) s;
     }
 
     public void drawCircle(Circle c) {
-        // TODO Auto-generated method stub
-        
+        System.out.println(c);
     }
 
-
-    @Override
-    public int getShapeType() {
-        // TODO Auto-generated method stub
-        return shapeType;
-    }
 
 }
