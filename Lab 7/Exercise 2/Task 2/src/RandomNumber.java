@@ -2,10 +2,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomNumber implements Runnable {
-    private  int random;
+   // int random;
     private static ArrayList<Integer> list = new ArrayList<>();
     private static int sum;
-    private Random r = new Random();
+    private Random r;
+
 
     @Override
     public void run() {
@@ -13,7 +14,9 @@ public class RandomNumber implements Runnable {
         
         // TODO Auto-generated method stub
         try{
-            
+            int random;
+            r = new Random();
+            //r.setSeed(98769);
             random = r.nextInt(100);
             addToList(random);
             System.out.println("This iteration value is: " + random + "\n");
