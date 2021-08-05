@@ -1,51 +1,40 @@
+// import java.util.ArrayList;
+// import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-public class Main implements Runnable {
+public class Main{
 
     private static ExecutorService pool;
+    static RandomNumber RNo = new RandomNumber();
+    // private  int random;
+    // private static ArrayList<Integer> list = new ArrayList<>();
+    // private static int sum;
+    // private Random r = new Random();
+
 
     public static void main(String[] args) throws InterruptedException {
 
         
 
         pool = Executors.newFixedThreadPool(5);
-        pool.submit(new RandomNumber());
-        pool.submit(new RandomNumber());
-        pool.submit(new RandomNumber());
-        pool.submit(new RandomNumber());
-        pool.submit(new RandomNumber());
-        
-        
-        // Thread t1 = new Thread(r1);
-        // Thread t2 = new Thread(r2);
-        // Thread t3 = new Thread(r3);
-        // Thread t4 = new Thread(r4);
-        // Thread t5 = new Thread(r5);
+        for(int i = 0; i < 5; i++)
+            pool.execute(new RandomNumber());
+        pool.shutdown();
 
-        // t1.start();
-        // t2.start();
-        // t3.start();
-        // t4.start();
-        // t5.start();
-        // t1.join();
-        // t2.join();
-        // t3.join();
-        // t4.join();
-        // t5.join();
-        pool.wait();
+        pool.awaitTermination(10000000, TimeUnit.NANOSECONDS);
 
         RandomNumber.getSum();
 
+
+
+        
         
     }
 
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        
-        
-    }
+    
+
 
     
     
