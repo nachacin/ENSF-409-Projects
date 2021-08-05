@@ -1,17 +1,18 @@
 package src;
-abstract public class Shape {
-
+public class Shape implements GraphicCreator{
 
     private int shapeType;
-
 
     Shape(int type) {
         this.shapeType = type;
     }
 
-    
-    abstract public int getShapeType();
+    @Override
+    public Shape drawShape(Shape s) {
 
+        return s;
+        
+    }
     
     
 }

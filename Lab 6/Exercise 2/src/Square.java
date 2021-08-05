@@ -1,21 +1,19 @@
 package src;
 public class Square extends Shape {
 
-    private static int shapeType = 2;
-
-    Square(int type) {
-        super(shapeType);
+    Square() {
+        super(2);
+        //TODO Auto-generated constructor stub
     }
 
-    public void drawSquare(Square s) {
+    public Shape drawShape(Shape s) {
 
+        return s;
     }
 
-    @Override
-    public int getShapeType() {
-        // TODO Auto-generated method stub
-        return shapeType;
+    public void drawSquare(Square square) {
+        System.out.println("square");
     }
-    
+
     
 }
