@@ -2,14 +2,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomNumber implements Runnable {
-<<<<<<< Updated upstream
-   // int random;
-=======
     private int random;
->>>>>>> Stashed changes
     private static ArrayList<Integer> list = new ArrayList<>();
     private static int sum;
-    private Random r;
+    private Random r = new Random();
 
 
     @Override
@@ -18,15 +14,8 @@ public class RandomNumber implements Runnable {
         
         // TODO Auto-generated method stub
         try{
-<<<<<<< Updated upstream
-            int random;
-            r = new Random();
-            //r.setSeed(98769);
-            random = r.nextInt(100);
-=======
             
             random = r.nextInt(100 - 1) + 1;
->>>>>>> Stashed changes
             addToList(random);
             System.out.println("This iteration value is: " + random + "\n");
             
