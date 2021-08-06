@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class guiClient {
-    Dimension buttonDimension = new Dimension(3,10);
-    JButton browse;
-    JFrame mainFrame;
-    JPanel mainPanel;
-    JTextField welcomeText;
+    private Dimension buttonDimension = new Dimension(3,10);
+    private JButton browse;
+    private JFrame mainFrame;
+    private JPanel mainPanel;
+    private JTextField welcomeText;
 
     public guiClient() {
         mainFrame = new JFrame();
