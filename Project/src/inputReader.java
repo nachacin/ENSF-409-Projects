@@ -31,7 +31,6 @@ public class inputReader {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(dataArray);
         for (Data d: dataArray) {
             tree.insert(d.id, d.faculty, d.major, d.year);
         }
