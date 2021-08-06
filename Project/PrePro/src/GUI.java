@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-
+import javax.xml.crypto.dsig.Manifest;
 
 import java.awt.event.*;
 import java.io.IOException;
@@ -86,12 +86,12 @@ public class GUI {
 
 
     private ActionListener actions = new ActionListener() {
+        JFrame prev;
         @Override
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == button1) {
                 mainFrame.setVisible(false);
                 insertButton();
-                
             }
                 
             if(e.getSource() == button2) {
@@ -99,8 +99,11 @@ public class GUI {
                 findStudent();
             }
             if(e.getSource() == button3){
+                if (prev != null) {
+                    prev.setVisible(false);
+                }
                 mainFrame.setVisible(false);
-                browseTree();
+                prev = browseTree();
             }
             if(e.getSource() == button4) {
                 mainFrame.setVisible(false);
@@ -109,11 +112,13 @@ public class GUI {
             if(e.getSource() == button5){
                 tree.insert(stuID.getText(), facu.getText(), major.getText(), year.getText());
                 insertFrame.setVisible(false);
-                mainFrame.setVisible(true);
+
             }
             if(e.getSource() == button6){
+                if (prev == null) {
+                    mainFrame.setVisible(true);
+                }
                 insertFrame.setVisible(false);
-                mainFrame.setVisible(true);
             }
             if(e.getSource() == button7) {
                 createTreeFrame.setVisible(false);
@@ -125,16 +130,16 @@ public class GUI {
                 mainFrame.setVisible(true);
             }
             if(e.getSource() == button9) {
+                if (prev == null) {
+                    mainFrame.setVisible(true);
+                }
                 findFrame.setVisible(false);
-                mainFrame.setVisible(true);
             }
             if(e.getSource() == button10) {
                 JOptionPane.showMessageDialog(findFrame, tree.find(tree.root, findArea.getText()));
 
             }
         }
-
-        
 
     };
 
@@ -168,7 +173,7 @@ public class GUI {
         
     }
 
-    public void browseTree() {
+    public JFrame browseTree() {
         browseFrame = new JFrame();
         JTextArea textArea = new JTextArea(20,60);
         JTextField mainText = new JTextField("An Application to Maintain Student Records");
@@ -206,10 +211,14 @@ public class GUI {
         try {
             StringWriter buffer = new StringWriter();
             PrintWriter writer = new PrintWriter(buffer);
-            tree.print_tree(tree.root, writer);
+            if (tree == null) {
+                JOptionPane.showMessageDialog(browseFrame, "A Tree has not been created yet! Use \"Create Tree from File\" button!");
+            } else {
+                tree.print_tree(tree.root, writer);
 
-            String contents = buffer.toString();
-            textArea.setText(contents);
+                String contents = buffer.toString();
+                textArea.setText(contents);
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -222,6 +231,8 @@ public class GUI {
         browseFrame.setTitle("Main Window");
         browseFrame.pack();
         browseFrame.setVisible(true);
+
+        return browseFrame;
     }
 
     public void getTree() {
