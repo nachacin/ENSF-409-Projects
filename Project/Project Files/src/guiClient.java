@@ -13,21 +13,27 @@ public class guiClient {
         mainFrame = new JFrame();
         mainPanel = new JPanel();
         welcomeText = new JTextField("Welcome to your course registration!");
-        browse = new JButton("Browse");
+        JTextField chooseText = new JTextField("Please choose from the following choices");
+        browse = new JButton("Browse Courses");
 
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 10, 10));
         welcomeText.setBorder(BorderFactory.createEmptyBorder());
+        chooseText.setBorder(BorderFactory.createEmptyBorder());
         welcomeText.setHorizontalAlignment(JTextField.CENTER);
+        chooseText.setHorizontalAlignment(JTextField.CENTER);
+        chooseText.setEditable(false);
         welcomeText.setEditable(false);
+
         browse.setSize(buttonDimension);
         browse.setFocusable(false);
 
 
         browse.addActionListener(actions);
 
-
         mainPanel.add(welcomeText, BorderLayout.NORTH);
+        mainPanel.add(chooseText);
+
         mainPanel.add(browse, BorderLayout.SOUTH);
         mainPanel.setPreferredSize(new Dimension(200,100));
         mainFrame.setContentPane(mainPanel);
