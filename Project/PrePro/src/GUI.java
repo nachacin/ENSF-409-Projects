@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.xml.crypto.dsig.Manifest;
 
 import java.awt.event.*;
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class GUI {
     private JFrame createTreeFrame;
     private JFrame browseFrame;
     private JFrame findFrame;
-    private JTextArea inputText;
+    private JTextField inputText;
     private JTextArea findArea;
     private JTextArea stuID;
     private JTextArea facu;
@@ -78,6 +77,7 @@ public class GUI {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setTitle("Main Window");
         mainFrame.pack();
+        mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
     }
     public static void main(String[] args) {
@@ -110,6 +110,9 @@ public class GUI {
                 getTree();
             }   
             if(e.getSource() == button5){
+                if(prev != null) {
+                    prev.setVisible(true);
+                }
                 tree.insert(stuID.getText(), facu.getText(), major.getText(), year.getText());
                 insertFrame.setVisible(false);
             }
@@ -137,6 +140,8 @@ public class GUI {
             if(e.getSource() == button10) {
                 JOptionPane.showMessageDialog(findFrame, tree.find(tree.root, findArea.getText()));
             }
+
+
         }
     };
 
@@ -157,15 +162,18 @@ public class GUI {
         subPanel.add(button9);
         subPanel.add(button10);
         findPanel.add(subPanel);
+        findArea.setBorder(BorderFactory.createLoweredBevelBorder());
 
         button9.addActionListener(actions);
         button10.addActionListener(actions);
 
         findFrame.setTitle("Input");
+        findFrame.setPreferredSize(new Dimension(300,250));
         findFrame.add(findPanel, BorderLayout.CENTER);
         findFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         findFrame.setTitle("Main Window");
         findFrame.pack();
+        findFrame.setLocationRelativeTo(null);
         findFrame.setVisible(true);
     }
 
@@ -226,6 +234,7 @@ public class GUI {
         browseFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         browseFrame.setTitle("Main Window");
         browseFrame.pack();
+        browseFrame.setLocationRelativeTo(null);
         browseFrame.setVisible(true);
 
         return browseFrame;
@@ -235,35 +244,33 @@ public class GUI {
         createTreeFrame = new JFrame();
         JPanel inputPanel = new JPanel();
         JPanel subPanel = new JPanel();
-        inputText = new JTextArea(1,10);
+        inputText = new JTextField(20);
         JLabel inputLabel = new JLabel("Enter the file name:");
         JButton button7 = new JButton("Cancel");
         button8 = new JButton("OK");
 
-        inputPanel.setLayout(new GridLayout(0,1));
+        inputPanel.setLayout(new BorderLayout());
         subPanel.setLayout(new FlowLayout());
         inputPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 10, 10));
         inputText.setBorder(BorderFactory.createLoweredBevelBorder());
 
-        inputPanel.add(inputLabel, BorderLayout.BEFORE_LINE_BEGINS);
-        inputPanel.add(inputText, BorderLayout.CENTER);
+        inputLabel.setLabelFor(inputText);
+        inputPanel.add(inputLabel, BorderLayout.NORTH);
+        inputPanel.add(new JScrollPane(inputText), BorderLayout.LINE_START);
         subPanel.add(button7);
         subPanel.add(button8);
-        inputPanel.add(subPanel);
+        inputPanel.add(subPanel, BorderLayout.SOUTH);
+
 
         button7.addActionListener(actions);
         button8.addActionListener(actions);
         
-
-        
-        
-
-
-        
         
         createTreeFrame.add(inputPanel, BorderLayout.CENTER);
+        createTreeFrame.setPreferredSize(new Dimension(400,200));
         createTreeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createTreeFrame.pack();
+        createTreeFrame.setLocationRelativeTo(null);
         createTreeFrame.setVisible(true);
 
         
@@ -339,6 +346,7 @@ public class GUI {
         insertFrame.add(buttonsPanel, BorderLayout.SOUTH);
         insertFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         insertFrame.pack();
+        insertFrame.setLocationRelativeTo(null);
         insertFrame.setVisible(true);
 
     }
