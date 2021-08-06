@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import java.awt.event.*;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -28,7 +27,6 @@ public class GUI {
     private JFrame createTreeFrame;
     private JFrame browseFrame;
     private JFrame findFrame;
-    private String inputFile;
     private JTextArea inputText;
     private JTextArea findArea;
     private JTextArea stuID;
@@ -84,14 +82,6 @@ public class GUI {
     }
     public static void main(String[] args) {
         new GUI();
-
-        // var aTree = inputReader.fillTree(".\\database\\input.txt");
-        // try {
-        //     aTree.print_tree(aTree.root, new PrintWriter(System.out));
-        // } catch (IOException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
     }
 
 
@@ -222,7 +212,6 @@ public class GUI {
             textArea.setText(contents);
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -249,7 +238,6 @@ public class GUI {
         inputPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 10, 10));
         inputText.setBorder(BorderFactory.createLoweredBevelBorder());
 
-        //inputLabel.setLabelFor(inputText);
         inputPanel.add(inputLabel, BorderLayout.BEFORE_LINE_BEGINS);
         inputPanel.add(inputText, BorderLayout.CENTER);
         subPanel.add(button7);
@@ -347,6 +335,8 @@ public class GUI {
         insertFrame.setVisible(true);
 
     }
+    
+
     
 
     
