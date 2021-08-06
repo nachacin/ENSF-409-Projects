@@ -1,13 +1,19 @@
 
 /**
- * A node with data and two references to the next-left and next-right node
+ * A node with two references to the next-left and next-right node. Each 
+ * {@code Node} object possesses a reference to an instance of {@code Data}.
+ * 
+ * @author ENSF 409 Teaching Team
+ * @since A long time ago
+ * @version 1.0
  */
 class Node {
-	
+	// Instance of {@code Data}
 	Data data;
+	// References to next-left and next-right
 	Node left, right;
 	/**
-	 * 
+	 * Creates an instance of {@code Node}.
 	 * @param id student id
 	 * @param faculty faculty code
 	 * @param major student's major

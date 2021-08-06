@@ -4,9 +4,6 @@ import javax.swing.JOptionPane;
  * The following class called BinSearchTree creates an empty 
  * tree, and allows the user of the class to insert new nodes into the tree.  
  */
-
- 
-
 class BinSearchTree {
 	
 	Node root;
@@ -56,7 +53,6 @@ class BinSearchTree {
 	/** 
 	 * Returns true if tree is empty 
 	 */
-	
 	public boolean empty() {
 		return (root == null);
 	}
@@ -64,9 +60,8 @@ class BinSearchTree {
 	/** 
 	 * removes all nodes 
 	 */
-	
 	public void destroy() {
-//		splice();
+	//		splice();
 		root = null;
 	}
 	
@@ -141,6 +136,5 @@ class BinSearchTree {
 		System.out.println(s);
 		if (cur.right!=null)
 			print_tree(cur.right,out);
-
 	} 
 }
