@@ -14,7 +14,7 @@ public class Menu {
     // Stores the student name of the user.
     private static DBManager dbmanager;
     // Initalized privately to register and remove registrations of a student in a course (In cases 2 and 3).
-    private static final int MAIN_MENU_CHOICES = 8;
+    private static final int MAIN_MENU_CHOICES = 9;
     private final static String DASHES = "--------------------"
                                 + "--------------------"
                                 + "--------------------";
@@ -42,14 +42,6 @@ public class Menu {
         System.out.println("+----------------------------------------------------------+");
         System.out.println("|                   Course Registration                    |");
         System.out.println("+----------------------------------------------------------+");
-        System.out.println("Message for grader of this assignment: The code in its current state is a bit janky.\n");
-        System.out.println("Please use \"Nestor Chacin\" with a student number of \"1\" or \"Nasih Nazeem\" with a student number of \"2\" to enter the menu.");
-        System.out.println("These students will pre-loaded with courses they have taken in the past and have a grade for. These courses would \n"
-                         + "allow for testing for prerequisites during enrolment although that feature is not implemented yet.\n");
-        System.out.println("ALSO: A course's status is indicative of whether it has reached an enrolment threshold of 8, which is defined as \n"
-                         + "the minimum number of students a course needs to have to be offered. At this time, only ENEL 300 has been preloaded \n"
-                         + "with sufficient students to test this feature conveniently.\n");
-
     }
 
     private static void printMenu(){
@@ -62,6 +54,7 @@ public class Menu {
         System.out.println("6 - View entire catalogue");
         System.out.println("7 - View all sections offered");
         System.out.println("8 - View classlist for a course");
+        System.out.println("9 - View entire catalogue FROM RandomAccessFile");
         System.out.println("0 - Quit");
     }
 
@@ -192,7 +185,9 @@ public class Menu {
                     System.out.println(s);
                 }
                 break;
-            
+            case 9:
+                dbmanager.printAllSectionsRA();
+                break;
             default:
                 break;
         }
