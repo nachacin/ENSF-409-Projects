@@ -141,5 +141,6 @@ class BinSearchTree {
 		System.out.println(s);
 		if (cur.right!=null)
 			print_tree(cur.right,out);
+
 	} 
 }
