@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class inputReader {
@@ -37,13 +36,5 @@ public class inputReader {
         return tree;
     }
 
-    public static void main(String[] args) {
-        var aTree = inputReader.fillTree(".\\database\\input.txt");
-        try {
-            aTree.print_tree(aTree.root, new PrintWriter(System.out));
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+
 }
