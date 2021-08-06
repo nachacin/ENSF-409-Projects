@@ -112,7 +112,6 @@ public class GUI {
             if(e.getSource() == button5){
                 tree.insert(stuID.getText(), facu.getText(), major.getText(), year.getText());
                 insertFrame.setVisible(false);
-
             }
             if(e.getSource() == button6){
                 if (prev == null) {
@@ -137,10 +136,8 @@ public class GUI {
             }
             if(e.getSource() == button10) {
                 JOptionPane.showMessageDialog(findFrame, tree.find(tree.root, findArea.getText()));
-
             }
         }
-
     };
 
 
@@ -170,7 +167,6 @@ public class GUI {
         findFrame.setTitle("Main Window");
         findFrame.pack();
         findFrame.setVisible(true);
-        
     }
 
     public JFrame browseTree() {
