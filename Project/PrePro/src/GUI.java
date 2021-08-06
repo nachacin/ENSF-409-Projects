@@ -1,15 +1,26 @@
 import java.awt.*;
 import javax.swing.*;
-
 import java.awt.event.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 
-
+/**
+ * Front-End menu that users interact with to select certain functions that 
+ * include; creating a Binary Search Tree, browsing through the tree, finding
+ * nodes within the tree, inserting additional nodes. This class also uses the
+ * ActionListener class that reads the pressing of buttons, to allow users to 
+ * manouver through the GUI.
+ * 
+ * @author Nasih Nazeem and Nestor Chacin
+ * @since 2021 - 08 - 06
+ * @version 1.0
+ */
 public class GUI {
-
+    // Various data fields for I/O purposes.
+    private BinSearchTree tree;
+    private JTextField inputText;
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -20,13 +31,11 @@ public class GUI {
     private JButton button8;
     private JButton button9;
     private JButton button10;
-    private BinSearchTree tree;
     private JFrame mainFrame;
     private JFrame insertFrame;
     private JFrame createTreeFrame;
     private JFrame browseFrame;
     private JFrame findFrame;
-    private JTextField inputText;
     private JTextArea findArea;
     private JTextArea stuID;
     private JTextArea facu;
@@ -34,6 +43,10 @@ public class GUI {
     private JTextArea year;
 
 
+
+    /**
+     * Creates default constructor that holds the {@code mainFrame} of the GUI, with options to move onto other windows.
+     */
     public GUI() {
         mainFrame = new JFrame();
         JTextArea textArea = new JTextArea(20,60);
@@ -80,11 +93,20 @@ public class GUI {
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
     }
+
+    /**
+     * Main method to create the initial GUI.
+     * @param args Not used.
+     */
     public static void main(String[] args) {
         new GUI();
     }
 
-
+    /**
+     * Created an {@code ActionListener} object using a lambda expression. This
+     * holds all the ActionEvents that allow users to manouver through the
+     * window.
+     */
     private ActionListener actions = new ActionListener() {
         JFrame prev;
         @Override
@@ -146,7 +168,10 @@ public class GUI {
     };
 
 
-
+    /**
+     * Creates a new {@code findFrame} JFrame that requires users to input a
+     * student's id inside {@code findArea}. 
+     */
     public void findStudent() {
         findFrame = new JFrame();
         JPanel findPanel = new JPanel();
@@ -176,7 +201,15 @@ public class GUI {
         findFrame.setLocationRelativeTo(null);
         findFrame.setVisible(true);
     }
+    
 
+    /**
+     * After inputting the BinarySearchTree, {@code textArea} is filled with
+     * the database and is displayed in the {@code browseFrame}.
+     * 
+     * @return browseFrame is returned to actionPerformed where 
+     * we make sure that the frame is not repeatedly opened.
+     */
     public JFrame browseTree() {
         browseFrame = new JFrame();
         JTextArea textArea = new JTextArea(20,60);
@@ -240,6 +273,12 @@ public class GUI {
         return browseFrame;
     }
 
+
+    /**
+     * Creates a new {@code createTreeFrame} JFrame that asks the user to input
+     * a database that holds the Binary Search Tree. Once input, user has now
+     * loaded the database into the BinarySearchTree.
+     */
     public void getTree() {
         createTreeFrame = new JFrame();
         JPanel inputPanel = new JPanel();
@@ -276,6 +315,13 @@ public class GUI {
         
     }
 
+
+    /**
+     * Creates a {@code insertFrame} JFrame that requires the user to input
+     * the student's id, faculty, major and year of study. This then creates
+     * a new Node within the BinarySearchTree, which is updated by refreshing
+     * the {@code browseFrame}.
+     */
     public void insertButton() {
         insertFrame = new JFrame();
         JPanel insertPanel = new JPanel();
