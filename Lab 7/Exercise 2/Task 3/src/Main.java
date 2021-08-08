@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Main{
 
     private static ExecutorService pool;
-    static RandomNumber RNo = new RandomNumber();
+    //static RandomNumber RNo = new RandomNumber();
     // private  int random;
     // private static ArrayList<Integer> list = new ArrayList<>();
     // private static int sum;
