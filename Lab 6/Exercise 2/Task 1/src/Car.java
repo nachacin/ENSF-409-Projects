@@ -1,26 +1,27 @@
-package src3;
-public class Car implements Engine {
-    private String vehicleType;
-    private String engineType;
+/**
+ * Changed all variable names to be more expressive
+ * <p>
+ * Constructor uses an explicit "this." to the instance their creating
+ * <p>
+ * getEngineModel is included here instead of in the abstract Vehicle class
+ * since not all vehicles have engines. But cars do.
+ */
+public class Car extends Vehicle{
+    private String model;
+    private String engineModel;
 
-    Car(String vType, String eType) {
-        vehicleType = vType;
-        engineType = eType;
-    }
-
-    /**
-     * I moved this into Car.java and removed it from the abstract class Vehicle.java due to it being more focused on the Car class, rather than both Car and Bicycle.
-     * @return Returns a String that contains the engineType requested.
-     */
-    @Override
-    public String getEngineType() {
-        return engineType;
+    Car(String aModel, String anEngineModel) {
+        this.model = aModel;
+        this.engineModel = anEngineModel;
     }
 
     @Override
-    public String getVehicleType() {
-        // TODO Auto-generated method stub
-        return vehicleType;
+    public String getModel(){
+        return model;
     }
+    public String getEngineModel() {
+        return engineModel;
+    }
+
 
 }
