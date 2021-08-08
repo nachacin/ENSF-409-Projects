@@ -1,10 +1,3 @@
-package src;
-public class Shape implements GraphicCreator{
-
-    @Override
-    public Shape drawShape(Shape s) {
-        return s;
-    }
-    
-    
+public abstract class Shape{
+    public abstract void drawShape();
 }

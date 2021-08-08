@@ -1,15 +1,10 @@
-package src;
-
 public class Circle extends Shape {
-
-    Circle() {
-        super();
-        //TODO Auto-generated constructor stub
+    //Some fields
+    public Circle() {
+        //Initialization of some fields
     }
-
-    public void drawCircle(Circle c) {
-        System.out.println("circle");
+    @Override
+    public void drawShape() {
+        // Some drawing is done
     }
-
-
 }

@@ -1,15 +1,10 @@
-package src;
 public class Square extends Shape {
-
-    Square() {
-        super();
-        //TODO Auto-generated constructor stub
+    //Some fields
+    public Square() {
+        //Initialization of some fields
     }
 
-
-    public void drawSquare(Square square) {
-        System.out.println("square");
+    public void drawSquare() {
+        // Some drawing is done.
     }
-
-    
 }
