@@ -7,4 +7,10 @@ public class Square extends Shape {
     public void drawSquare() {
         // Some drawing is done.
     }
+
+    @Override
+    public void drawShape() {
+        // TODO Auto-generated method stub
+        
+    }
 }
