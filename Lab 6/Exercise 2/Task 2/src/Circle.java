@@ -3,7 +3,7 @@ package src;
 public class Circle extends Shape {
 
     Circle() {
-        super(1);
+        super();
         //TODO Auto-generated constructor stub
     }
 

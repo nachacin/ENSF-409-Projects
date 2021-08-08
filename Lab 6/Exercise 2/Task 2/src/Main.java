@@ -7,6 +7,7 @@ public class Main {
         Square s = new Square();
         ((Circle) c.drawShape(c)).drawCircle(c);
         ((Square) s.drawShape(s)).drawSquare(s);
+ 
         
     }
 }

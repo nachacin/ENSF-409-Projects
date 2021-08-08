@@ -1,4 +1,3 @@
-package src3;
 public class Bicycle implements Vehicle {
 
     private String vehicleType;

@@ -1,3 +1,0 @@
-This program violates the Open-Closed Principle that requires classes to be open for extensions,
-but closed for modifications. If we wanted to change the color identity of the shapes, we would
-have to redo the constructors of each Shape, therefore modifying a previously existing class.
